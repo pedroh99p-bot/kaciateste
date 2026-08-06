@@ -1,0 +1,25 @@
+<svg width="760" height="960" viewBox="0 0 760 960" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Retrato ilustrativo do especialista</title>
+  <desc id="desc">Imagem neutra substituível por foto real do especialista.</desc>
+  <rect width="760" height="960" fill="#071427"/>
+  <circle cx="494" cy="154" r="238" fill="#2F8BFF" opacity=".12"/>
+  <circle cx="602" cy="318" r="264" fill="#9B5CFF" opacity=".12"/>
+  <path d="M168 960C183 743 268 614 380 614C492 614 577 743 592 960H168Z" fill="#0B2944"/>
+  <path d="M244 960C258 774 313 680 380 680C447 680 502 774 516 960H244Z" fill="#102A4A"/>
+  <path d="M244 902C265 774 311 702 380 702C449 702 495 774 516 902C481 877 435 863 380 863C325 863 279 877 244 902Z" fill="#071B32"/>
+  <path d="M266 460C273 337 318 260 382 260C446 260 488 338 495 460C501 565 458 635 381 635C304 635 260 565 266 460Z" fill="#D8B39A"/>
+  <path d="M267 454C273 335 318 258 382 258C447 258 489 337 495 459C455 439 411 412 377 359C350 408 311 440 267 454Z" fill="#1C2433"/>
+  <path d="M288 338C303 251 354 206 420 224C484 241 517 302 505 406C464 394 421 367 379 323C353 366 321 390 274 404C274 382 279 358 288 338Z" fill="#111827"/>
+  <path d="M319 478C333 492 347 499 362 499" stroke="#6C3D2F" stroke-width="7" stroke-linecap="round"/>
+  <path d="M401 499C417 498 431 491 444 477" stroke="#6C3D2F" stroke-width="7" stroke-linecap="round"/>
+  <path d="M350 557C371 573 395 573 416 557" stroke="#8A4E3A" stroke-width="8" stroke-linecap="round"/>
+  <path d="M380 635L333 723L380 810L427 723L380 635Z" fill="white" opacity=".95"/>
+  <path d="M168 960C183 743 268 614 380 614L333 723L380 960H168Z" fill="#0B2540"/>
+  <path d="M380 614C492 614 577 743 592 960H380V614Z" fill="#0E3156"/>
+  <path d="M121 774C196 715 245 696 326 691L380 960H124C114 896 113 837 121 774Z" fill="#0A1E37"/>
+  <path d="M639 774C564 715 515 696 434 691L380 960H636C646 896 647 837 639 774Z" fill="#0A1E37"/>
+  <path d="M128 829C207 782 289 760 380 760C471 760 553 782 632 829" stroke="#2F8BFF" stroke-opacity=".35" stroke-width="3"/>
+  <path d="M156 123H604" stroke="#79BDF0" stroke-opacity=".25" stroke-width="2"/>
+  <path d="M97 176H663" stroke="#2F8BFF" stroke-opacity=".18" stroke-width="2"/>
+  <path d="M116 220H644" stroke="#66B9F2" stroke-opacity=".18" stroke-width="2"/>
+</svg>

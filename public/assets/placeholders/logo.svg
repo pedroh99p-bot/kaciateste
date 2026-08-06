@@ -1,0 +1,17 @@
+<svg width="296" height="96" viewBox="0 0 296 96" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Logo configurável do despachante</title>
+  <desc id="desc">Placeholder substituível para a logo do despachante.</desc>
+  <rect width="296" height="96" rx="24" fill="#071427"/>
+  <path d="M42 24H67.6C82.8 24 94 35.3 94 49.9C94 64.9 82.9 76 67.4 76H42V24Z" fill="url(#paint0_linear)"/>
+  <path d="M54.8 36.5V63.5H67.1C75.1 63.5 80.9 58 80.9 49.9C80.9 42.1 75 36.5 67.1 36.5H54.8Z" fill="#071427"/>
+  <path d="M99 24H120L103.3 76H88.2L99 24Z" fill="#66B9F2"/>
+  <text x="132" y="45" fill="white" font-family="Inter, Arial, sans-serif" font-size="25" font-weight="800" letter-spacing="1.5">DESPACHANTE</text>
+  <text x="133" y="67" fill="#B9C4D6" font-family="Inter, Arial, sans-serif" font-size="14" font-weight="600" letter-spacing="5">MODELO</text>
+  <defs>
+    <linearGradient id="paint0_linear" x1="42" y1="24" x2="98" y2="78" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#66B9F2"/>
+      <stop offset="0.48" stop-color="#79BDF0"/>
+      <stop offset="1" stop-color="#2F8BFF"/>
+    </linearGradient>
+  </defs>
+</svg>

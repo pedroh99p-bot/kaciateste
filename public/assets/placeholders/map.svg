@@ -1,0 +1,32 @@
+<svg width="960" height="720" viewBox="0 0 960 720" fill="none" xmlns="http://www.w3.org/2000/svg" role="img" aria-labelledby="title desc">
+  <title id="title">Mapa ilustrativo</title>
+  <desc id="desc">Mapa placeholder substituível por mapa real ou embed.</desc>
+  <rect width="960" height="720" rx="48" fill="#071427"/>
+  <path d="M0 204L960 84M0 496L960 360M110 0L284 720M420 0L608 720M760 0L604 720" stroke="#1B3E68" stroke-width="18" stroke-linecap="round"/>
+  <path d="M0 272L960 144M0 558L960 430M154 0L328 720M464 0L652 720M816 0L660 720" stroke="#102A4A" stroke-width="7" stroke-linecap="round"/>
+  <g filter="url(#filter0_d)">
+    <path d="M480 178C403 178 340 239 340 317C340 431 480 542 480 542C480 542 620 431 620 317C620 239 557 178 480 178Z" fill="#66B9F2"/>
+    <path d="M480 214C423 214 377 260 377 317C377 397 480 484 480 484C480 484 583 397 583 317C583 260 537 214 480 214Z" fill="#071427"/>
+    <path d="M437 287H480C513 287 536 311 536 343C536 375 513 399 480 399H437V287Z" fill="url(#paint0_linear)"/>
+    <path d="M459 309V377H479C499 377 514 362 514 343C514 324 499 309 479 309H459Z" fill="#071427"/>
+  </g>
+  <text x="95" y="118" fill="#B9C4D6" fill-opacity=".65" font-family="Inter, Arial, sans-serif" font-size="28" font-weight="700">REGIÃO ATENDIDA</text>
+  <text x="615" y="612" fill="#B9C4D6" fill-opacity=".55" font-family="Inter, Arial, sans-serif" font-size="24" font-weight="600">MAPA SUBSTITUÍVEL</text>
+  <defs>
+    <filter id="filter0_d" x="292" y="150" width="376" height="460" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+      <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+      <feOffset dy="20"/>
+      <feGaussianBlur stdDeviation="24"/>
+      <feComposite in2="hardAlpha" operator="out"/>
+      <feColorMatrix type="matrix" values="0 0 0 0 1 0 0 0 0 0.419608 0 0 0 0 0.4 0 0 0 0.5 0"/>
+      <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow"/>
+      <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow" result="shape"/>
+    </filter>
+    <linearGradient id="paint0_linear" x1="437" y1="287" x2="548" y2="386" gradientUnits="userSpaceOnUse">
+      <stop stop-color="#66B9F2"/>
+      <stop offset=".5" stop-color="#79BDF0"/>
+      <stop offset="1" stop-color="#2F8BFF"/>
+    </linearGradient>
+  </defs>
+</svg>
