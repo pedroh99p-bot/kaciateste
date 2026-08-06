@@ -317,6 +317,7 @@ select {
 
 .section-heading h2 {
   font-size: clamp(2.35rem, 12vw, 5rem);
+  overflow-wrap: anywhere;
 }
 
 .section-heading__subtitle {
@@ -639,7 +640,7 @@ select {
     var(--hero-background-image),
     radial-gradient(circle at 78% 18%, color-mix(in srgb, var(--color-primary) 24%, transparent), transparent 25rem);
   background-repeat: no-repeat;
-  background-position: 62% top, center;
+  background-position: var(--hero-background-position-mobile, 62% top), center;
   background-size: auto 32rem, auto;
 }
 
@@ -2398,7 +2399,7 @@ body:has(.mobile-menu-control:checked) .floating-actions {
   }
 
   .hero--has-background .hero__background {
-    background-position: center top, center;
+    background-position: var(--hero-background-position-desktop, center top), center;
     background-size: 100% auto, auto;
   }
 

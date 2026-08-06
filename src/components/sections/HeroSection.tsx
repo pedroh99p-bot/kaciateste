@@ -16,6 +16,8 @@ type HeroSectionProps = {
 
 type HeroStyle = CSSProperties & {
   "--hero-background-image"?: string;
+  "--hero-background-position-mobile"?: string;
+  "--hero-background-position-desktop"?: string;
 };
 
 export function HeroSection({ prospect }: HeroSectionProps) {
@@ -25,7 +27,9 @@ export function HeroSection({ prospect }: HeroSectionProps) {
   const hasHeroBackground = Boolean(prospect.assets.backgroundTexture);
   const heroStyle = hasHeroBackground
     ? ({
-        "--hero-background-image": `url("${prospect.assets.backgroundTexture}")`
+        "--hero-background-image": `url("${prospect.assets.backgroundTexture}")`,
+        "--hero-background-position-mobile": prospect.layout.heroBackgroundPositionMobile,
+        "--hero-background-position-desktop": prospect.layout.heroBackgroundPositionDesktop
       } as HeroStyle)
     : undefined;
 

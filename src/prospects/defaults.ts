@@ -259,6 +259,11 @@ export const defaultProspectConfig: ProspectConfig = {
     whatsappMessage: "Olá! Quero receber o link do grupo de informações.",
     logo: null
   },
+  quickConsult: {
+    identifierField: "vehicle",
+    identifierLabel: "Placa ou identificação",
+    identifierPlaceholder: "ABC1D23"
+  },
   rollers: {
     authority: {
       enabled: true,
@@ -398,6 +403,8 @@ export const defaultProspectConfig: ProspectConfig = {
   },
   layout: {
     heroVariant: "specialist-background",
+    heroBackgroundPositionMobile: "62% top",
+    heroBackgroundPositionDesktop: "center top",
     servicesVariant: "grid",
     servicesTone: "light",
     contentTone: "light",

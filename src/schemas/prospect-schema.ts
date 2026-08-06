@@ -98,6 +98,13 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
     );
   }
 
+  if (
+    !prospect.quickConsult.identifierLabel.trim() ||
+    !prospect.quickConsult.identifierPlaceholder.trim()
+  ) {
+    errors.push(`${prospect.slug}: os textos do campo de identificação da consulta são obrigatórios`);
+  }
+
   validateAssetUrl(`${prospect.slug}: assets.logo`, prospect.assets.logo.src, errors);
   validateAssetUrl(`${prospect.slug}: assets.symbol`, prospect.assets.symbol.src, errors);
   validateAssetUrl(

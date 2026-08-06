@@ -3,8 +3,8 @@ import type { ProspectConfigInput } from "../types";
 const assetRoot = "/assets/kacia-despachante";
 
 const logoAsset = {
-  src: `${assetRoot}/logo.webp`,
-  alt: "Logo da Kacia Despachante",
+  src: `${assetRoot}/main-logo.png`,
+  alt: "Kacia Despachante de Armas",
   width: 1080,
   height: 1080,
   objectFit: "contain" as const,
@@ -66,20 +66,23 @@ export const kaciaDespachanteProspect = {
       "Olá, Kacia! Vim pelo site e gostaria de solicitar uma análise inicial do meu caso."
   },
   location: {
-    city: "Todo o Brasil",
-    state: "BR",
-    address: "Atendimento on-line pelo WhatsApp",
+    city: "Rio de Janeiro",
+    state: "RJ",
+    address:
+      "Av. Ayrton Senna, 2500 - Ofice 3 - Condomínio Neolink - Barra da Tijuca, 22775-003",
     region: "Todo o Brasil",
     hours: ["Consulte a disponibilidade pelo WhatsApp"],
-    routeUrl: null,
-    mapEmbedUrl: null
+    routeUrl:
+      "https://www.google.com/maps/search/?api=1&query=Av.%20Ayrton%20Senna%2C%202500%20-%20Ofice%203%20-%20Condom%C3%ADnio%20Neolink%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022775-003",
+    mapEmbedUrl:
+      "https://www.google.com/maps?q=Av.%20Ayrton%20Senna%2C%202500%20-%20Ofice%203%20-%20Condom%C3%ADnio%20Neolink%20-%20Barra%20da%20Tijuca%2C%20Rio%20de%20Janeiro%20-%20RJ%2C%2022775-003&output=embed"
   },
   assets: {
     logo: logoAsset,
     logoLight: logoAsset,
     logoDark: logoAsset,
     symbol: logoAsset,
-    favicon: `${assetRoot}/logo.webp`,
+    favicon: `${assetRoot}/main-logo.png`,
     heroSpecialist: specialistAsset,
     specialistPortrait: specialistAsset,
     specialistSignature: null,
@@ -88,8 +91,8 @@ export const kaciaDespachanteProspect = {
     backgroundTexture: `${assetRoot}/hero-background.webp`,
     testimonialAvatars: [],
     mapFallback: {
-      ...groupLogoAsset,
-      alt: "Atendimento da Kacia Despachante em todo o Brasil"
+      ...logoAsset,
+      alt: "Escritório da Kacia Despachante na Barra da Tijuca"
     }
   },
   services: [
@@ -250,6 +253,11 @@ export const kaciaDespachanteProspect = {
       "Olá, Kacia! Quero receber o link do grupo Kacia despachante/ decreto 11.615 🇧🇷.",
     logo: groupLogoAsset
   },
+  quickConsult: {
+    identifierField: "name",
+    identifierLabel: "Nome",
+    identifierPlaceholder: "Seu nome"
+  },
   rollers: {
     authority: {
       enabled: true,
@@ -319,7 +327,7 @@ export const kaciaDespachanteProspect = {
     preset: "documental",
     heroEyebrow: "Posse • CAC • documentação em todo o Brasil",
     heroHeadline: {
-      before: "CR, CRAF e GT",
+      before: "CAC, CR, CRAF e GT",
       highlight: "com orientação",
       after: "em cada etapa",
       variant: "glow"
@@ -345,8 +353,8 @@ export const kaciaDespachanteProspect = {
     },
     benefitsEyebrow: "Por que escolher",
     benefitsHeadline: {
-      before: "Orientação documental com mais",
-      highlight: "clareza e responsabilidade",
+      before: "Orientação documental com",
+      highlight: "clareza",
       after: "",
       variant: "glow"
     },
@@ -364,10 +372,10 @@ export const kaciaDespachanteProspect = {
       after: "",
       variant: "glow"
     },
-    locationEyebrow: "Atendimento nacional",
+    locationEyebrow: "Onde fica o escritório",
     locationHeadline: {
-      before: "Orientação on-line para",
-      highlight: "todo o Brasil",
+      before: "Escritório na Barra da Tijuca",
+      highlight: "atendimento em todo o Brasil",
       after: "",
       variant: "glow"
     },
@@ -390,6 +398,8 @@ export const kaciaDespachanteProspect = {
   },
   layout: {
     heroVariant: "specialist-background",
+    heroBackgroundPositionMobile: "76% top",
+    heroBackgroundPositionDesktop: "center top",
     servicesVariant: "carousel",
     servicesTone: "dark",
     contentTone: "dark",

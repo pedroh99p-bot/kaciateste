@@ -223,6 +223,12 @@ export type WhatsAppGroupConfig = {
   logo: AssetImage | null;
 };
 
+export type QuickConsultConfig = {
+  identifierField: "vehicle" | "name";
+  identifierLabel: string;
+  identifierPlaceholder: string;
+};
+
 export type RollerConfig = {
   enabled: boolean;
   items: Array<{ label: string; icon: IconName; requiresProof?: boolean }>;
@@ -258,6 +264,8 @@ export type CopyConfig = {
 
 export type LayoutConfig = {
   heroVariant: "specialist-background" | "specialist-side" | "no-specialist";
+  heroBackgroundPositionMobile: string;
+  heroBackgroundPositionDesktop: string;
   servicesVariant: "grid" | "carousel";
   servicesTone: "light" | "dark";
   contentTone: "light" | "dark";
@@ -324,6 +332,7 @@ export type ProspectConfig = {
   proof: ProofConfig;
   testimonials: TestimonialsConfig;
   whatsappGroup: WhatsAppGroupConfig;
+  quickConsult: QuickConsultConfig;
   rollers: {
     authority: RollerConfig;
     transition: RollerConfig;

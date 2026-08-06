@@ -10,7 +10,7 @@ type QuickConsultProps = {
 };
 
 export function QuickConsult({ prospect }: QuickConsultProps) {
-  const [vehiclePlate, setVehiclePlate] = useState("");
+  const [identifierValue, setIdentifierValue] = useState("");
   const [customerWhatsApp, setCustomerWhatsApp] = useState("");
   const [selectedService, setSelectedService] = useState(prospect.enabledServices[0]?.title ?? "");
 
@@ -19,10 +19,19 @@ export function QuickConsult({ prospect }: QuickConsultProps) {
       createWhatsAppHref(prospect.contact.whatsapp, prospect.contact.defaultMessage, {
         origin: "consulta-rapida",
         selectedService,
-        vehiclePlate,
+        ...(prospect.quickConsult.identifierField === "name"
+          ? { customerName: identifierValue }
+          : { vehiclePlate: identifierValue }),
         customerWhatsApp
       }),
-    [customerWhatsApp, prospect.contact.defaultMessage, prospect.contact.whatsapp, selectedService, vehiclePlate]
+    [
+      customerWhatsApp,
+      identifierValue,
+      prospect.contact.defaultMessage,
+      prospect.contact.whatsapp,
+      prospect.quickConsult.identifierField,
+      selectedService
+    ]
   );
 
   function handleSubmit(event: FormEvent<HTMLFormElement>) {
@@ -52,13 +61,13 @@ export function QuickConsult({ prospect }: QuickConsultProps) {
       </label>
       <div className="quick-consult__grid">
         <label>
-          <span>Placa ou identificação</span>
+          <span>{prospect.quickConsult.identifierLabel}</span>
           <input
-            autoComplete="off"
+            autoComplete={prospect.quickConsult.identifierField === "name" ? "name" : "off"}
             inputMode="text"
-            placeholder="ABC1D23"
-            value={vehiclePlate}
-            onChange={(event) => setVehiclePlate(event.target.value)}
+            placeholder={prospect.quickConsult.identifierPlaceholder}
+            value={identifierValue}
+            onChange={(event) => setIdentifierValue(event.target.value)}
           />
         </label>
         <label>
