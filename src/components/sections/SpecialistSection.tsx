@@ -3,6 +3,7 @@ import { createWhatsAppHref } from "@/lib/whatsapp";
 import { Reveal } from "@/components/animations/Reveal";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
+import { HighlightText } from "@/components/ui/HighlightText";
 import { Icon } from "@/components/ui/Icon";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { StatCard } from "@/components/ui/StatCard";
@@ -26,14 +27,18 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
             <Icon className="eyebrow__icon" name="shield" />
             <span>{prospect.copy.specialistEyebrow}</span>
           </p>
+          <h2 className="specialist__headline">
+            <HighlightText copy={prospect.copy.specialistHeadline} />
+          </h2>
           <div className="specialist__identity">
-            <h2>{prospect.specialist.name}</h2>
+            <h3>{prospect.specialist.name}</h3>
             <p>{prospect.specialist.role}</p>
             <span>
               <Icon name="map" />
               {prospect.specialist.city} — {prospect.specialist.state}
             </span>
           </div>
+          <p className="specialist__description">{prospect.specialist.description}</p>
         </div>
         <div className="specialist__visual">
           {portrait?.src ? (
@@ -53,6 +58,16 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
           )}
         </div>
         <div className="specialist__details">
+          {prospect.specialist.credentials.length > 0 ? (
+            <div className="specialist__credentials" aria-label="Credenciais profissionais">
+              {prospect.specialist.credentials.map((credential) => (
+                <Chip key={credential.label} icon={credential.icon} label={credential.label} />
+              ))}
+              {prospect.specialist.chips.map((chip) => (
+                <Chip key={chip.label} icon={chip.icon} label={chip.label} />
+              ))}
+            </div>
+          ) : null}
           {prospect.canShowProof ? (
             <div className="specialist__stats">
               {prospect.proof.rating ? (
@@ -84,18 +99,13 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
               ) : null}
             </div>
           ) : null}
-          <div className="specialist__chips">
-            {prospect.specialist.chips.map((chip) => (
-              <Chip key={chip.label} icon={chip.icon} label={chip.label} />
-            ))}
-          </div>
           <div className="specialist__actions">
             <Button href={whatsappHref} icon="whatsapp" variant="whatsapp">
               Falar com {specialistFirstName}
             </Button>
             {prospect.contact.instagramUrl ? (
               <Button href={prospect.contact.instagramUrl} icon="instagram" variant="secondary">
-                Conhecer Instagram
+                Instagram
               </Button>
             ) : (
               <Button href="#inicio" icon="calendar" variant="secondary">

@@ -49,10 +49,16 @@ export function Footer({ prospect }: FooterProps) {
               <a href="#servicos">Serviços</a>
             </li>
             <li>
+              <a href="#pacotes">Pacotes</a>
+            </li>
+            <li>
               <a href="#especialista">Especialista</a>
             </li>
             <li>
               <a href="#como-funciona">Como funciona</a>
+            </li>
+            <li>
+              <a href="#faq">Dúvidas frequentes</a>
             </li>
             <li>
               <a href="#localizacao">Localização</a>

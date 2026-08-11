@@ -2,13 +2,11 @@ import type { CSSProperties } from "react";
 import type { ResolvedProspect } from "@/prospects/types";
 import { createWhatsAppHref } from "@/lib/whatsapp";
 import { Reveal } from "@/components/animations/Reveal";
-import { QuickConsult } from "@/components/quiz/QuickConsult";
 import { Button } from "@/components/ui/Button";
 import { Chip } from "@/components/ui/Chip";
 import { HighlightText } from "@/components/ui/HighlightText";
 import { Icon } from "@/components/ui/Icon";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
-import { StatCard } from "@/components/ui/StatCard";
 
 type HeroSectionProps = {
   prospect: ResolvedProspect;
@@ -52,31 +50,15 @@ export function HeroSection({ prospect }: HeroSectionProps) {
           </h1>
           <p className="hero__subtitle">{prospect.copy.heroSubtitle}</p>
           <div className="hero__chips">
-            {prospect.specialist.chips.slice(0, 3).map((chip) => (
+            {prospect.copy.heroProofs.map((chip) => (
               <Chip key={chip.label} icon={chip.icon} label={chip.label} />
             ))}
           </div>
-          {prospect.canShowProof ? (
-            <div className="hero__stats">
-              {prospect.proof.rating ? (
-                <StatCard decimals={1} icon="star" label={prospect.proof.sourceLabel ?? "avaliação"} value={prospect.proof.rating} />
-              ) : null}
-              {prospect.proof.reviewCount ? (
-                <StatCard icon="message" label="avaliações" value={prospect.proof.reviewCount} />
-              ) : null}
-              {prospect.proof.yearsExperience ? (
-                <StatCard icon="calendar" label="anos de experiência" suffix="+" value={prospect.proof.yearsExperience} />
-              ) : null}
-              {prospect.proof.clientsServed ? (
-                <StatCard icon="user" label="clientes atendidos" suffix="+" value={prospect.proof.clientsServed} />
-              ) : null}
-            </div>
-          ) : null}
           <div className="hero__actions">
             <Button href={whatsappHref} icon="whatsapp" variant="whatsapp">
               {prospect.copy.heroPrimaryCta}
             </Button>
-            <Button href="#servicos" icon="arrow-right" variant="secondary">
+            <Button href="#pacotes" icon="arrow-right" variant="secondary">
               {prospect.copy.heroSecondaryCta}
             </Button>
           </div>
@@ -93,9 +75,6 @@ export function HeroSection({ prospect }: HeroSectionProps) {
           />
         </Reveal>
       )}
-      <Reveal className="hero__consult" delay={120}>
-        <QuickConsult prospect={prospect} />
-      </Reveal>
     </section>
   );
 }

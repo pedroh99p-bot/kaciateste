@@ -18,6 +18,12 @@ export function composeCopy(config: ProspectConfig): CopyConfig {
     heroEyebrow: interpolate(config.copy.heroEyebrow, variables),
     heroHeadline: resolveHighlight(config.copy.heroHeadline, variables),
     heroSubtitle: interpolate(config.copy.heroSubtitle, variables),
+    heroProofs: config.copy.heroProofs.map((proof) => ({
+      ...proof,
+      label: interpolate(proof.label, variables)
+    })),
+    primaryCta: interpolate(config.copy.primaryCta, variables),
+    specialistNavLabel: interpolate(config.copy.specialistNavLabel, variables),
     servicesHeadline: resolveHighlight(config.copy.servicesHeadline, variables),
     servicesSubtitle: interpolate(config.copy.servicesSubtitle, variables),
     specialistHeadline: resolveHighlight(config.copy.specialistHeadline, variables),

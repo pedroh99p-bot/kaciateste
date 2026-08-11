@@ -126,6 +126,7 @@ export type SpecialistConfig = {
   description: string;
   signatureText: string | null;
   chips: Array<{ label: string; icon: IconName }>;
+  credentials: Array<{ label: string; icon: IconName }>;
 };
 
 export type ContactConfig = {
@@ -170,7 +171,82 @@ export type ServiceConfig = {
   shortDescription: string;
   icon: IconName;
   enabled: boolean;
+  ctaLabel: string;
   whatsappMessage: string;
+};
+
+export type PackageConfig = {
+  id: string;
+  name: string;
+  eyebrow: string | null;
+  badge: string | null;
+  price: string;
+  installments: string | null;
+  description: string;
+  items: string[];
+  ctaLabel: string;
+  whatsappMessage: string;
+  featured: boolean;
+  enabled: boolean;
+};
+
+export type PackagesConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  subtitle: string;
+  disclaimer: string | null;
+  items: PackageConfig[];
+};
+
+export type RenewalPriceConfig = {
+  quantity: number;
+  label: string;
+  price: string;
+};
+
+export type RenewalConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  subtitle: string;
+  description: string;
+  prices: RenewalPriceConfig[];
+  additionalLabel: string | null;
+  disclaimer: string | null;
+  ctaLabel: string;
+  whatsappMessage: string;
+};
+
+export type ReportConfig = {
+  id: string;
+  title: string;
+  description: string;
+  icon: IconName;
+  enabled: boolean;
+};
+
+export type ReportsConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  subtitle: string;
+  items: ReportConfig[];
+};
+
+export type FaqItemConfig = {
+  id: string;
+  question: string;
+  answer: string;
+  enabled: boolean;
+};
+
+export type FaqConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  subtitle: string;
+  items: FaqItemConfig[];
 };
 
 export type BenefitConfig = {
@@ -241,8 +317,11 @@ export type CopyConfig = {
   heroEyebrow: string;
   heroHeadline: HighlightCopy;
   heroSubtitle: string;
+  heroProofs: Array<{ label: string; icon: IconName }>;
   heroPrimaryCta: string;
   heroSecondaryCta: string;
+  primaryCta: string;
+  specialistNavLabel: string;
   servicesHeadline: HighlightCopy;
   servicesSubtitle: string;
   specialistEyebrow: string;
@@ -327,6 +406,10 @@ export type ProspectConfig = {
   location: LocationConfig;
   assets: AssetsConfig;
   services: ServiceConfig[];
+  packages: PackagesConfig;
+  renewal: RenewalConfig;
+  reports: ReportsConfig;
+  faq: FaqConfig;
   benefits: BenefitConfig[];
   process: ProcessStepConfig[];
   proof: ProofConfig;
@@ -355,6 +438,9 @@ export type ProspectConfigInput = DeepPartial<ProspectConfig> & {
 
 export type ResolvedProspect = ProspectConfig & {
   enabledServices: ServiceConfig[];
+  enabledPackages: PackageConfig[];
+  enabledReports: ReportConfig[];
+  enabledFaqItems: FaqItemConfig[];
   visibleRollerItems: RollerConfig["items"];
   canShowProof: boolean;
   canIndex: boolean;

@@ -10,11 +10,14 @@ import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
 import { SectionDivider } from "@/components/layout/SectionDivider";
 import { AuthorityRoller } from "@/components/rollers/AuthorityRoller";
-import { BenefitsSection } from "@/components/sections/BenefitsSection";
+import { CrafRenewalSection } from "@/components/sections/CrafRenewalSection";
+import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { HeroSection } from "@/components/sections/HeroSection";
 import { LocationSection } from "@/components/sections/LocationSection";
+import { PackagesSection } from "@/components/sections/PackagesSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
+import { ReportsSection } from "@/components/sections/ReportsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { SpecialistSection } from "@/components/sections/SpecialistSection";
 import { TestimonialsSection } from "@/components/sections/TestimonialsSection";
@@ -66,14 +69,16 @@ export default async function ProspectPage({ params }: PageProps) {
         <HeroSection prospect={prospect} />
         <SectionDivider variant="curve" />
         <AuthorityRoller roller={prospect.rollers.transition} />
-        <ServicesSection prospect={prospect} />
-        <SectionDivider variant="diagonal" />
         <SpecialistSection prospect={prospect} />
-        <WhatsAppGroupSection prospect={prospect} />
-        <SectionDivider variant="layered-gradient" />
-        <BenefitsSection prospect={prospect} />
+        <SectionDivider variant="diagonal" />
+        <ServicesSection prospect={prospect} />
+        <PackagesSection prospect={prospect} />
+        <CrafRenewalSection prospect={prospect} />
+        <ReportsSection prospect={prospect} />
         <ProcessSection prospect={prospect} />
         <TestimonialsSection prospect={prospect} />
+        <FaqSection prospect={prospect} />
+        <WhatsAppGroupSection prospect={prospect} />
         <SectionDivider variant="glow-line" />
         <LocationSection prospect={prospect} />
         <SectionDivider variant="grid-fade" />

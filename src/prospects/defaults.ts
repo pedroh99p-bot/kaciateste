@@ -23,7 +23,8 @@ export const defaultProspectConfig: ProspectConfig = {
       { label: "Atendimento humanizado", icon: "message" },
       { label: "Processo organizado", icon: "shield" },
       { label: "Orientação clara", icon: "badge-check" }
-    ]
+    ],
+    credentials: []
   },
   contact: {
     whatsapp: "5500000000000",
@@ -100,6 +101,7 @@ export const defaultProspectConfig: ProspectConfig = {
       shortDescription: "Orientação para troca de propriedade com documentação organizada.",
       icon: "transfer",
       enabled: true,
+      ctaLabel: "Falar com o especialista",
       whatsappMessage: "Quero orientação sobre transferência de veículo."
     },
     {
@@ -108,6 +110,7 @@ export const defaultProspectConfig: ProspectConfig = {
       shortDescription: "Apoio para entender etapas e pendências do licenciamento.",
       icon: "document",
       enabled: true,
+      ctaLabel: "Falar com o especialista",
       whatsappMessage: "Quero orientação sobre licenciamento."
     },
     {
@@ -116,6 +119,7 @@ export const defaultProspectConfig: ProspectConfig = {
       shortDescription: "Ajuda para organizar a comunicação após venda do veículo.",
       icon: "message",
       enabled: true,
+      ctaLabel: "Falar com o especialista",
       whatsappMessage: "Quero orientação sobre comunicação de venda."
     },
     {
@@ -124,6 +128,7 @@ export const defaultProspectConfig: ProspectConfig = {
       shortDescription: "Direcionamento para casos de perda, roubo ou atualização documental.",
       icon: "clipboard",
       enabled: true,
+      ctaLabel: "Falar com o especialista",
       whatsappMessage: "Quero orientação sobre segunda via de documentos."
     },
     {
@@ -132,6 +137,7 @@ export const defaultProspectConfig: ProspectConfig = {
       shortDescription: "Análise inicial de pendências e próximos passos possíveis.",
       icon: "shield",
       enabled: true,
+      ctaLabel: "Falar com o especialista",
       whatsappMessage: "Quero orientação sobre regularização de pendências."
     },
     {
@@ -140,9 +146,64 @@ export const defaultProspectConfig: ProspectConfig = {
       shortDescription: "Orientação para organizar a documentação do primeiro registro.",
       icon: "car",
       enabled: true,
+      ctaLabel: "Falar com o especialista",
       whatsappMessage: "Quero orientação sobre primeiro emplacamento."
     }
   ],
+  packages: {
+    enabled: false,
+    eyebrow: "Investimento",
+    headline: {
+      before: "Escolha o atendimento mais adequado ao",
+      highlight: "seu momento",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Compare as opções disponíveis antes de iniciar o atendimento.",
+    disclaimer: null,
+    items: []
+  },
+  renewal: {
+    enabled: false,
+    eyebrow: "Renovação documental",
+    headline: {
+      before: "Organize sua renovação com",
+      highlight: "antecedência",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Confira as opções cadastradas para o seu caso.",
+    description: "A orientação depende da análise dos documentos e requisitos aplicáveis.",
+    prices: [],
+    additionalLabel: null,
+    disclaimer: null,
+    ctaLabel: "Falar sobre renovação",
+    whatsappMessage: "Quero orientação sobre renovação documental."
+  },
+  reports: {
+    enabled: false,
+    eyebrow: "Etapas complementares",
+    headline: {
+      before: "Orientação sobre etapas",
+      highlight: "complementares",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Informações gerais sobre etapas que podem ser aplicáveis ao processo.",
+    items: []
+  },
+  faq: {
+    enabled: false,
+    eyebrow: "Dúvidas frequentes",
+    headline: {
+      before: "Informações para começar com",
+      highlight: "clareza",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Respostas prudentes sobre atendimento, documentos e próximos passos.",
+    items: []
+  },
   benefits: [
     {
       title: "Atendimento especializado",
@@ -339,8 +400,15 @@ export const defaultProspectConfig: ProspectConfig = {
     },
     heroSubtitle:
       "Orientação para transferência, licenciamento e regularização em {{city}} e região.",
+    heroProofs: [
+      { label: "Atendimento pelo WhatsApp", icon: "whatsapp" },
+      { label: "Orientação especializada", icon: "shield" },
+      { label: "{{region}}", icon: "map" }
+    ],
     heroPrimaryCta: "Falar no WhatsApp",
     heroSecondaryCta: "Ver serviços",
+    primaryCta: "Falar no WhatsApp",
+    specialistNavLabel: "Especialista",
     servicesHeadline: {
       before: "Serviços para deixar sua documentação",
       highlight: "mais clara",

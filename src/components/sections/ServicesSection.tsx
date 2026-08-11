@@ -53,7 +53,7 @@ export function ServicesSection({ prospect }: ServicesSectionProps) {
             <h3>Não sabe qual serviço precisa?</h3>
             <p>Explique sua situação e receba uma orientação inicial para entender o melhor próximo passo.</p>
             <Button href={guidanceHref} icon="whatsapp" variant="whatsapp">
-              Receber orientação no WhatsApp
+              {prospect.copy.primaryCta}
             </Button>
           </div>
           <ImageWithFallback

@@ -18,7 +18,7 @@ export function BottomMobileCta({ prospect }: BottomMobileCtaProps) {
   return (
     <a className="bottom-mobile-cta" href={href}>
       <Icon name="whatsapp" />
-      <span>Falar no WhatsApp</span>
+      <span>{prospect.copy.primaryCta}</span>
     </a>
   );
 }

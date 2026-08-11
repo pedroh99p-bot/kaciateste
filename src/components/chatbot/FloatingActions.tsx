@@ -1,4 +1,7 @@
+"use client";
+
 import type { CSSProperties } from "react";
+import { useEffect, useState } from "react";
 import type { ResolvedProspect } from "@/prospects/types";
 import { createWhatsAppHref } from "@/lib/whatsapp";
 import { Icon } from "@/components/ui/Icon";
@@ -12,6 +15,40 @@ type FloatingActionsStyle = CSSProperties & {
 };
 
 export function FloatingActions({ prospect }: FloatingActionsProps) {
+  const [isSuppressed, setIsSuppressed] = useState(false);
+
+  useEffect(() => {
+    const targets = Array.from(
+      document.querySelectorAll(
+        ".hero__actions, .specialist__actions, .package-card .button, .renewal__content .button, .final-cta__actions, .location__actions, .whatsapp-group__content .button"
+      )
+    );
+
+    if (targets.length === 0) {
+      return;
+    }
+
+    const visibleTargets = new Set<Element>();
+    const observer = new IntersectionObserver(
+      (entries) => {
+        for (const entry of entries) {
+          if (entry.isIntersecting) {
+            visibleTargets.add(entry.target);
+          } else {
+            visibleTargets.delete(entry.target);
+          }
+        }
+
+        setIsSuppressed(visibleTargets.size > 0);
+      },
+      { threshold: 0.08 }
+    );
+
+    targets.forEach((target) => observer.observe(target));
+
+    return () => observer.disconnect();
+  }, []);
+
   if (!prospect.chatbot.enabled) {
     return null;
   }
@@ -23,11 +60,11 @@ export function FloatingActions({ prospect }: FloatingActionsProps) {
 
   return (
     <div
-      className="floating-actions"
+      className={`floating-actions${isSuppressed ? " floating-actions--suppressed" : ""}`}
       style={{ "--chatbot-delay": `${Math.max(0, prospect.chatbot.showAfterSeconds)}s` } as FloatingActionsStyle}
     >
       <a
-        aria-label="Falar no WhatsApp"
+        aria-label={`${prospect.copy.primaryCta} no WhatsApp`}
         className="floating-actions__whatsapp"
         href={baseWhatsAppHref}
       >

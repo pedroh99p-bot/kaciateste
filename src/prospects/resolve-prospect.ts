@@ -72,6 +72,15 @@ export function resolveProspect(input: ProspectConfigInput): ResolvedProspect {
   };
 
   const enabledServices = withCopy.services.filter((service) => service.enabled);
+  const enabledPackages = withCopy.packages.enabled
+    ? withCopy.packages.items.filter((item) => item.enabled)
+    : [];
+  const enabledReports = withCopy.reports.enabled
+    ? withCopy.reports.items.filter((item) => item.enabled)
+    : [];
+  const enabledFaqItems = withCopy.faq.enabled
+    ? withCopy.faq.items.filter((item) => item.enabled)
+    : [];
   const canShowProof =
     withCopy.proof.enabled &&
     Boolean(
@@ -84,6 +93,9 @@ export function resolveProspect(input: ProspectConfigInput): ResolvedProspect {
   return {
     ...withCopy,
     enabledServices,
+    enabledPackages,
+    enabledReports,
+    enabledFaqItems,
     canShowProof,
     canIndex: withCopy.status === "client" && withCopy.seo.allowIndexing,
     visibleRollerItems: withCopy.rollers.authority.items.filter(

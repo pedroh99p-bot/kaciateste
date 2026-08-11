@@ -38,10 +38,10 @@ export function FinalCtaSection({ prospect }: FinalCtaSectionProps) {
           </div>
           <div className="final-cta__actions">
             <Button href={whatsappHref} icon="whatsapp" variant="whatsapp">
-              Falar no WhatsApp
+              {prospect.copy.primaryCta}
             </Button>
-            <Button href="#inicio" icon="calendar" variant="secondary">
-              Fazer consulta rápida
+            <Button href="#pacotes" icon="arrow-right" variant="secondary">
+              Ver investimento
             </Button>
           </div>
         </div>

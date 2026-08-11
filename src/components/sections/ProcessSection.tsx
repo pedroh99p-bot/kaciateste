@@ -45,7 +45,7 @@ export function ProcessSection({ prospect }: ProcessSectionProps) {
       </div>
       <Reveal className="section-context-cta" delay={140}>
         <Button href={whatsappHref} icon="whatsapp" variant="whatsapp">
-          Começar pelo WhatsApp
+          {prospect.copy.primaryCta}
         </Button>
       </Reveal>
     </section>

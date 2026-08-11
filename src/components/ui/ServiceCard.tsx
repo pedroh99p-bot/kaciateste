@@ -18,7 +18,7 @@ export function ServiceCard({ service, href }: ServiceCardProps) {
         <p>{service.shortDescription}</p>
       </div>
       <Button href={href} variant="ghost">
-        Preciso disso
+        {service.ctaLabel}
       </Button>
     </article>
   );

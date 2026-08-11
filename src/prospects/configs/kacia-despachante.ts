@@ -13,7 +13,7 @@ const logoAsset = {
 
 const specialistAsset = {
   src: `${assetRoot}/specialist.webp`,
-  alt: "Kacia, especialista em posse, CAC e documentação",
+  alt: "Kacia, especialista em processos documentais relacionados a armas",
   width: 1122,
   height: 1402,
   objectFit: "cover" as const,
@@ -25,6 +25,15 @@ const groupLogoAsset = {
   alt: "Logo do grupo Kacia Despachante Decreto 11.615",
   width: 1080,
   height: 1080,
+  objectFit: "contain" as const,
+  objectPosition: "center"
+};
+
+const googleIconAsset = {
+  src: `${assetRoot}/google-icon.png`,
+  alt: "Google",
+  width: 320,
+  height: 320,
   objectFit: "contain" as const,
   objectPosition: "center"
 };
@@ -42,17 +51,14 @@ export const kaciaDespachanteProspect = {
   },
   specialist: {
     name: "Kacia Despachante",
-    role: "Especialista em posse, CAC e documentação",
+    role: "Especialista em processos documentais relacionados à Polícia Federal",
     city: "Atendimento nacional",
     state: "Brasil",
     description:
-      "Atendimento especializado para organizar documentos, esclarecer etapas e orientar processos relacionados a posse, CAC, CR, CRAF, GT e Polícia Federal.",
+      "Kacia orienta e organiza processos documentais relacionados a CR, CRAF, CAC, Guia de Tráfego, posse e demandas perante a Polícia Federal.",
     signatureText: null,
-    chips: [
-      { label: "Especialista em Posse e CAC", icon: "shield" },
-      { label: "Atendimento em todo o Brasil", icon: "map" },
-      { label: "Mais de 16 mil seguidores", icon: "instagram" }
-    ]
+    chips: [{ label: "Mais de 16 mil seguidores", icon: "instagram" }],
+    credentials: [{ label: "Despachante", icon: "clipboard" }]
   },
   contact: {
     whatsapp: "5521981554881",
@@ -63,7 +69,7 @@ export const kaciaDespachanteProspect = {
     instagram: "@kaciadespachante",
     instagramUrl: "https://www.instagram.com/kaciadespachante/",
     defaultMessage:
-      "Olá, Kacia! Vim pelo site e gostaria de solicitar uma análise inicial do meu caso."
+      "Olá, Kacia! Vim pelo site e gostaria de receber orientação sobre o meu caso."
   },
   location: {
     city: "Rio de Janeiro",
@@ -86,10 +92,9 @@ export const kaciaDespachanteProspect = {
     heroSpecialist: specialistAsset,
     specialistPortrait: specialistAsset,
     specialistSignature: null,
-    socialPreview:
-      "https://res.cloudinary.com/dhbrxzt5a/image/upload/v1785977432/ChatGPT_Image_Aug_5_2026_09_45_21_PM_4_rzt9yl.webp",
+    socialPreview: `${assetRoot}/social-preview.webp`,
     backgroundTexture: `${assetRoot}/hero-background.webp`,
-    testimonialAvatars: [],
+    testimonialAvatars: [googleIconAsset],
     mapFallback: {
       ...logoAsset,
       alt: "Escritório da Kacia Despachante na Barra da Tijuca"
@@ -97,124 +102,317 @@ export const kaciaDespachanteProspect = {
   },
   services: [
     {
+      id: "cr-cac",
+      title: "CR / CAC",
+      shortDescription:
+        "Assessoria documental para processos relacionados ao Certificado de Registro e às categorias aplicáveis.",
+      icon: "badge-check",
+      enabled: true,
+      ctaLabel: "FALAR COM KACIA",
+      whatsappMessage: "Quero entender como funciona a assessoria para CR e CAC."
+    },
+    {
+      id: "craf",
+      title: "CRAF",
+      shortDescription:
+        "Organização documental para emissão ou atualização do Certificado de Registro de Arma de Fogo.",
+      icon: "document",
+      enabled: true,
+      ctaLabel: "FALAR COM KACIA",
+      whatsappMessage: "Quero orientação sobre um processo relacionado ao CRAF."
+    },
+    {
+      id: "guia-de-trafego",
+      title: "Guia de Tráfego",
+      shortDescription:
+        "Orientação sobre documentos e etapas aplicáveis aos processos de Guia de Tráfego.",
+      icon: "route",
+      enabled: true,
+      ctaLabel: "FALAR COM KACIA",
+      whatsappMessage: "Quero orientação sobre Guia de Tráfego."
+    },
+    {
+      id: "renovacao",
+      title: "Renovação",
+      shortDescription:
+        "Assessoria para organizar a documentação de renovação de CR ou CRAF conforme o caso.",
+      icon: "calendar",
+      enabled: true,
+      ctaLabel: "FALAR COM KACIA",
+      whatsappMessage: "Quero orientação sobre renovação de CR ou CRAF."
+    },
+    {
       id: "posse-de-arma",
       title: "Posse de arma",
       shortDescription:
         "Orientação e organização documental para demandas relacionadas à posse de arma.",
       icon: "shield",
       enabled: true,
+      ctaLabel: "FALAR COM KACIA",
       whatsappMessage: "Quero solicitar uma análise sobre posse de arma."
     },
     {
-      id: "cac",
-      title: "Assessoria para CAC",
+      id: "porte-federal",
+      title: "Porte Federal",
       shortDescription:
-        "Orientação documental para demandas de Colecionador, Atirador Desportivo e Caçador.",
-      icon: "badge-check",
-      enabled: true,
-      whatsappMessage: "Quero orientação documental sobre CAC."
-    },
-    {
-      id: "cr",
-      title: "Certificado de Registro — CR",
-      shortDescription:
-        "Análise e orientação documental em processos relacionados ao Certificado de Registro.",
-      icon: "clipboard",
-      enabled: true,
-      whatsappMessage: "Quero orientação sobre Certificado de Registro (CR)."
-    },
-    {
-      id: "craf",
-      title: "Registro de Arma — CRAF",
-      shortDescription:
-        "Organização documental para processos relacionados ao Certificado de Registro de Arma de Fogo.",
-      icon: "document",
-      enabled: true,
-      whatsappMessage: "Quero orientação sobre CRAF."
-    },
-    {
-      id: "guia-de-trafego",
-      title: "Guia de Tráfego — GT",
-      shortDescription:
-        "Orientação sobre documentos e etapas aplicáveis aos processos de Guia de Tráfego.",
-      icon: "route",
-      enabled: true,
-      whatsappMessage: "Quero orientação sobre Guia de Tráfego (GT)."
-    },
-    {
-      id: "processos-pf",
-      title: "Processos na Polícia Federal",
-      shortDescription:
-        "Assessoria documental para demandas relacionadas aos serviços de armas da Polícia Federal.",
+        "Orientação documental inicial sobre processos de porte nas hipóteses aplicáveis.",
       icon: "lock",
       enabled: true,
-      whatsappMessage: "Quero orientação sobre um processo na Polícia Federal."
+      ctaLabel: "FALAR COM KACIA",
+      whatsappMessage: "Quero entender se a assessoria para Porte Federal se aplica ao meu caso."
     },
     {
-      id: "analise-documental",
-      title: "Análise documental do caso",
+      id: "aquisicao",
+      title: "Compra / aquisição",
       shortDescription:
-        "Conferência inicial do contexto para identificar documentos e próximos passos possíveis.",
-      icon: "message",
+        "Organização documental relacionada às etapas aplicáveis ao pedido de aquisição.",
+      icon: "clipboard",
       enabled: true,
-      whatsappMessage: "Quero solicitar uma análise documental inicial do meu caso."
+      ctaLabel: "FALAR COM KACIA",
+      whatsappMessage: "Quero orientação sobre o processo documental de aquisição."
+    },
+    {
+      id: "regularizacao-documental",
+      title: "Regularização documental",
+      shortDescription:
+        "Análise do contexto e direcionamento sobre documentos que podem precisar de adequação.",
+      icon: "check",
+      enabled: true,
+      ctaLabel: "FALAR COM KACIA",
+      whatsappMessage: "Quero orientação sobre regularização documental."
     }
   ],
+  packages: {
+    enabled: true,
+    eyebrow: "Investimento",
+    headline: {
+      before: "Escolha o seu",
+      highlight: "pacote",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Escolha o atendimento mais adequado ao seu momento.",
+    disclaimer:
+      "Valores e condições apresentados no briefing comercial. Confirme itens inclusos, taxas e condições no atendimento.",
+    items: [
+      {
+        id: "cr-atirador",
+        name: "CR Atirador Desportivo",
+        eyebrow: null,
+        badge: null,
+        price: "R$ 2.000,00",
+        installments: "18x de R$ 129,00",
+        description: "Assessoria para o processo de emissão do CR.",
+        items: [
+          "Emissão do CR pela Polícia Federal",
+          "Orientação para filiação à entidade aplicável",
+          "Orientação para documentação e laudos",
+          "Certidões necessárias",
+          "Suporte durante o processo"
+        ],
+        ctaLabel: "QUERO ESTE",
+        whatsappMessage:
+          "Olá, Kacia. Vi no site o pacote CR Atirador Desportivo e gostaria de entender como funciona.",
+        featured: false,
+        enabled: true
+      },
+      {
+        id: "cr-completo-arma",
+        name: "CR Completo + Arma",
+        eyebrow: null,
+        badge: "Mais procurado",
+        price: "R$ 3.000,00",
+        installments: "18x de R$ 190,00",
+        description: "Assessoria documental que reúne etapas complementares do processo.",
+        items: [
+          "Tudo do pacote CR Atirador",
+          "Processo relacionado à autorização de aquisição",
+          "CRAF",
+          "Guia de Tráfego",
+          "Orientação complementar"
+        ],
+        ctaLabel: "QUERO ESTE PACOTE",
+        whatsappMessage:
+          "Olá, Kacia. Vi no site o pacote CR Completo + Arma e gostaria de entender como funciona.",
+        featured: true,
+        enabled: true
+      },
+      {
+        id: "renovacao-craf",
+        name: "Renovação de CRAF",
+        eyebrow: "A partir de",
+        badge: null,
+        price: "R$ 800,00",
+        installments: null,
+        description: "Assessoria para organizar o processo documental de renovação do CRAF.",
+        items: [
+          "Assessoria para renovação",
+          "Orientação documental",
+          "Opções para múltiplos CRAFs",
+          "Suporte durante o processo"
+        ],
+        ctaLabel: "QUERO RENOVAR",
+        whatsappMessage:
+          "Olá, Kacia. Vi no site a opção de Renovação de CRAF e gostaria de entender como funciona.",
+        featured: false,
+        enabled: true
+      }
+    ]
+  },
+  renewal: {
+    enabled: true,
+    eyebrow: "Atendimento específico",
+    headline: {
+      before: "Renovação de",
+      highlight: "CRAF",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Organize sua documentação e inicie o processo com antecedência.",
+    description:
+      "As opções abaixo ajudam a identificar o investimento apresentado para diferentes quantidades de CRAFs.",
+    prices: [
+      { quantity: 1, label: "1 CRAF", price: "R$ 800" },
+      { quantity: 2, label: "2 CRAFs", price: "R$ 1.100" },
+      { quantity: 3, label: "3 CRAFs", price: "R$ 1.400" },
+      { quantity: 4, label: "4 CRAFs", price: "R$ 1.600" },
+      { quantity: 5, label: "5 CRAFs", price: "R$ 1.800" },
+      { quantity: 6, label: "6 CRAFs", price: "R$ 2.000" }
+    ],
+    additionalLabel: "+ R$ 200 por arma adicional",
+    disclaimer:
+      "Valores do briefing comercial. Confirme condições, taxas e documentos aplicáveis antes de contratar.",
+    ctaLabel: "FALAR SOBRE MINHA RENOVAÇÃO",
+    whatsappMessage:
+      "Olá, Kacia. Quero falar sobre a renovação do meu CRAF e entender qual opção se aplica ao meu caso."
+  },
+  reports: {
+    enabled: true,
+    eyebrow: "Etapas complementares",
+    headline: {
+      before: "Laudos e etapas",
+      highlight: "complementares",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Orientação responsável sobre etapas que podem ser aplicáveis ao processo.",
+    items: [
+      {
+        id: "laudo-psicologico",
+        title: "Laudo psicológico",
+        description:
+          "Orientação para realização com profissional credenciado, quando aplicável ao processo.",
+        icon: "user",
+        enabled: true
+      },
+      {
+        id: "capacidade-tecnica",
+        title: "Capacidade técnica",
+        description:
+          "Orientação para realização da etapa técnica conforme os requisitos aplicáveis.",
+        icon: "badge-check",
+        enabled: true
+      }
+    ]
+  },
+  faq: {
+    enabled: true,
+    eyebrow: "Dúvidas frequentes",
+    headline: {
+      before: "Comece com mais",
+      highlight: "clareza",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Respostas iniciais sobre o atendimento e os próximos passos.",
+    items: [
+      {
+        id: "atendimento-brasil",
+        question: "Você atende todo o Brasil?",
+        answer:
+          "Sim. O atendimento inicial e a orientação documental podem ser realizados pelo WhatsApp para clientes de diferentes regiões do Brasil.",
+        enabled: true
+      },
+      {
+        id: "qual-processo",
+        question: "Como sei qual processo preciso?",
+        answer:
+          "Envie um resumo do seu caso pelo WhatsApp. A análise inicial ajuda a identificar qual assunto está mais próximo da sua necessidade.",
+        enabled: true
+      },
+      {
+        id: "itens-inclusos",
+        question: "O que está incluso na assessoria?",
+        answer:
+          "Cada pacote apresenta seu escopo principal. Antes de contratar, confirme pelo WhatsApp os documentos, etapas e itens aplicáveis ao seu caso.",
+        enabled: true
+      },
+      {
+        id: "taxas-laudos",
+        question: "Taxas e laudos estão incluídos?",
+        answer:
+          "Os valores de taxas, laudos e serviços de terceiros devem ser confirmados no atendimento antes da contratação.",
+        enabled: true
+      },
+      {
+        id: "prazo",
+        question: "Quanto tempo o processo leva?",
+        answer:
+          "O prazo pode variar conforme os documentos, o tipo de processo e a análise da Polícia Federal. Não há promessa de prazo ou aprovação.",
+        enabled: true
+      },
+      {
+        id: "decisao-pf",
+        question: "O resultado depende da Polícia Federal?",
+        answer:
+          "Sim. A assessoria é documental, e a decisão final depende da análise e dos procedimentos do órgão responsável.",
+        enabled: true
+      },
+      {
+        id: "como-comecar",
+        question: "Como começo meu atendimento?",
+        answer:
+          "Clique em Falar com Kacia, envie um resumo da sua necessidade e aguarde a orientação sobre o próximo passo.",
+        enabled: true
+      }
+    ]
+  },
   benefits: [
     {
       title: "Especialização no segmento",
-      description:
-        "Atendimento concentrado em posse, CAC e documentação relacionada a armas.",
+      description: "Atendimento concentrado em processos documentais relacionados a armas.",
       icon: "shield"
     },
     {
       title: "Orientação responsável",
-      description:
-        "Informações claras, sem prometer resultados que dependem dos órgãos responsáveis.",
+      description: "Informações claras, sem prometer resultados que dependem dos órgãos responsáveis.",
       icon: "badge-check"
     },
     {
-      title: "Atendimento nacional",
-      description:
-        "Contato on-line pelo WhatsApp para clientes de diferentes regiões do Brasil.",
-      icon: "map"
-    },
-    {
-      title: "Documentação organizada",
-      description:
-        "Apoio para entender os documentos e as etapas aplicáveis a cada situação.",
-      icon: "clipboard"
-    },
-    {
       title: "Contato direto",
-      description:
-        "Você apresenta seu caso pelo WhatsApp e recebe orientação para o próximo passo.",
+      description: "Você apresenta seu caso pelo WhatsApp e recebe orientação para o próximo passo.",
       icon: "whatsapp"
     }
   ],
   process: [
     {
       title: "Você apresenta o caso",
-      description:
-        "Envie pelo WhatsApp um resumo da sua necessidade e das dúvidas que precisa esclarecer.",
+      description: "Envie pelo WhatsApp um resumo da sua necessidade e das suas dúvidas.",
       icon: "message"
     },
     {
       title: "A situação é analisada",
-      description:
-        "O contexto inicial é conferido para identificar o tipo de orientação documental aplicável.",
+      description: "O contexto inicial é conferido para identificar a orientação documental aplicável.",
       icon: "user"
     },
     {
       title: "Os documentos são organizados",
-      description:
-        "Você recebe direcionamento sobre informações, documentos e etapas do processo.",
+      description: "Você recebe direcionamento sobre informações, documentos e etapas.",
       icon: "document"
     },
     {
       title: "O atendimento continua",
-      description:
-        "As dúvidas e os próximos passos são acompanhados pelo canal de atendimento.",
+      description: "Dúvidas e próximos passos são acompanhados pelo canal de atendimento.",
       icon: "whatsapp"
     }
   ],
@@ -261,13 +459,11 @@ export const kaciaDespachanteProspect = {
   rollers: {
     authority: {
       enabled: true,
-      speedSeconds: 30,
+      speedSeconds: 32,
       direction: "left",
       items: [
-        { label: "Especialista em Posse e CAC", icon: "shield" },
-        { label: "CR • CRAF • GT", icon: "document" },
-        { label: "Processos na Polícia Federal", icon: "lock" },
-        { label: "Atendimento em todo o Brasil", icon: "map" },
+        { label: "Processos documentais na Polícia Federal", icon: "shield" },
+        { label: "Atendimento nacional", icon: "map" },
         { label: "Mais de 16 mil seguidores", icon: "instagram" },
         { label: "5,0 no Google", icon: "star", requiresProof: true },
         { label: "93 avaliações", icon: "message", requiresProof: true }
@@ -275,13 +471,13 @@ export const kaciaDespachanteProspect = {
     },
     transition: {
       enabled: true,
-      speedSeconds: 34,
+      speedSeconds: 36,
       direction: "right",
       items: [
-        { label: "Orientação documental", icon: "clipboard" },
-        { label: "Atendimento pelo WhatsApp", icon: "whatsapp" },
-        { label: "Informação responsável", icon: "badge-check" },
-        { label: "Análise do seu caso", icon: "message" }
+        { label: "CR e CAC", icon: "badge-check" },
+        { label: "CRAF e Guia de Tráfego", icon: "document" },
+        { label: "Renovação documental", icon: "calendar" },
+        { label: "Laudos e etapas complementares", icon: "clipboard" }
       ]
     }
   },
@@ -325,29 +521,36 @@ export const kaciaDespachanteProspect = {
   },
   copy: {
     preset: "documental",
-    heroEyebrow: "Posse • CAC • documentação em todo o Brasil",
+    heroEyebrow: "CR pela Polícia Federal",
     heroHeadline: {
-      before: "CAC, CR, CRAF e GT",
-      highlight: "com orientação",
-      after: "em cada etapa",
+      before: "Quer ser CAC?",
+      highlight: "Comece aqui.",
+      after: "",
       variant: "glow"
     },
     heroSubtitle:
-      "Assessoria documental para posse, CAC e processos junto à Polícia Federal, com atendimento em todo o Brasil.",
-    heroPrimaryCta: "Solicitar análise no WhatsApp",
-    heroSecondaryCta: "Ver serviços",
+      "Assessoria especializada para conduzir seu processo documental junto à Polícia Federal com orientação em cada etapa.",
+    heroProofs: [
+      { label: "Atendimento nacional", icon: "map" },
+      { label: "Especialista em processos na PF", icon: "shield" },
+      { label: "Atendimento pelo WhatsApp", icon: "whatsapp" }
+    ],
+    heroPrimaryCta: "FALAR COM KACIA AGORA",
+    heroSecondaryCta: "VER INVESTIMENTO",
+    primaryCta: "Falar com Kacia",
+    specialistNavLabel: "Quem é Kacia",
     servicesHeadline: {
-      before: "Assessoria documental para",
-      highlight: "posse, CAC e PF",
+      before: "Assessoria para diferentes",
+      highlight: "momentos do processo",
       after: "",
       variant: "glow"
     },
     servicesSubtitle:
-      "Deslize pelo carrossel, escolha o assunto mais próximo do seu caso e solicite uma análise inicial pelo WhatsApp.",
-    specialistEyebrow: "Especialista",
+      "Deslize, encontre o assunto mais próximo do seu caso e fale com Kacia.",
+    specialistEyebrow: "Quem é Kacia",
     specialistHeadline: {
-      before: "Atendimento especializado com",
-      highlight: "alcance nacional",
+      before: "Mais que uma despachante.",
+      highlight: "Experiência de quem conhece o processo.",
       after: "",
       variant: "glow"
     },
@@ -367,34 +570,34 @@ export const kaciaDespachanteProspect = {
     },
     testimonialsEyebrow: "Avaliações",
     testimonialsHeadline: {
-      before: "Experiência reconhecida por quem já buscou",
+      before: "Experiência compartilhada por quem já buscou",
       highlight: "orientação",
       after: "",
       variant: "glow"
     },
     locationEyebrow: "Onde fica o escritório",
     locationHeadline: {
-      before: "Escritório na Barra da Tijuca",
-      highlight: "atendimento em todo o Brasil",
+      before: "Escritório no Rio,",
+      highlight: "atendimento nacional",
       after: "",
       variant: "glow"
     },
-    finalEyebrow: "Análise inicial",
+    finalEyebrow: "Fale com Kacia",
     finalHeadline: {
-      before: "Conte seu caso e entenda o",
-      highlight: "próximo passo",
+      before: "Comece seu atendimento com",
+      highlight: "orientação",
       after: "",
       variant: "glow"
     },
     finalSubtitle:
-      "Envie um resumo da sua situação pelo WhatsApp para receber uma orientação inicial sobre documentos e etapas possíveis.",
+      "Envie um resumo da sua situação pelo WhatsApp e entenda o próximo passo documental.",
     finalBenefits: [
       "Atendimento em todo o Brasil",
-      "Especialista em Posse e CAC",
-      "CR, CRAF, GT e processos na PF"
+      "Orientação documental responsável",
+      "Contato direto pelo WhatsApp"
     ],
     footerDescription:
-      "Assessoria documental para posse, CAC, CR, CRAF, GT e processos relacionados, com atendimento em todo o Brasil."
+      "Assessoria documental para CR, CRAF, CAC, GT, posse, renovação e processos relacionados, com atendimento em todo o Brasil."
   },
   layout: {
     heroVariant: "specialist-background",
@@ -427,6 +630,33 @@ export const kaciaDespachanteProspect = {
     showAfterSeconds: 3,
     quickReplies: [
       {
+        id: "cr-cac",
+        label: "Quero orientação sobre CR ou CAC",
+        icon: "badge-check",
+        response:
+          "Envie um resumo da sua situação para identificar a orientação documental aplicável.",
+        relatedServiceId: "cr-cac",
+        whatsappMessage: "Quero orientação documental sobre CR ou CAC."
+      },
+      {
+        id: "craf",
+        label: "Minha dúvida é sobre CRAF",
+        icon: "document",
+        response:
+          "O atendimento pode analisar se sua demanda envolve emissão, atualização ou renovação.",
+        relatedServiceId: "craf",
+        whatsappMessage: "Tenho uma dúvida sobre CRAF."
+      },
+      {
+        id: "renovacao",
+        label: "Preciso renovar documentos",
+        icon: "calendar",
+        response:
+          "Envie a quantidade de documentos e um resumo do caso para receber a orientação inicial.",
+        relatedServiceId: "renovacao",
+        whatsappMessage: "Quero orientação sobre renovação documental."
+      },
+      {
         id: "posse",
         label: "Tenho dúvidas sobre posse",
         icon: "shield",
@@ -436,40 +666,13 @@ export const kaciaDespachanteProspect = {
         whatsappMessage: "Tenho dúvidas sobre posse de arma e quero solicitar uma análise."
       },
       {
-        id: "cac",
-        label: "Preciso de orientação sobre CAC",
-        icon: "badge-check",
+        id: "nao-sei",
+        label: "Não sei qual processo preciso",
+        icon: "message",
         response:
-          "Envie um resumo da sua situação para identificar a orientação documental aplicável.",
-        relatedServiceId: "cac",
-        whatsappMessage: "Preciso de orientação documental sobre CAC."
-      },
-      {
-        id: "cr-craf",
-        label: "Minha dúvida é sobre CR ou CRAF",
-        icon: "document",
-        response:
-          "CR e CRAF são documentos diferentes. O atendimento pode analisar qual deles está relacionado à sua demanda.",
-        relatedServiceId: "craf",
-        whatsappMessage: "Tenho uma dúvida sobre CR ou CRAF."
-      },
-      {
-        id: "gt",
-        label: "Preciso de orientação sobre GT",
-        icon: "route",
-        response:
-          "O primeiro passo é entender a finalidade e a situação documental relacionada à Guia de Tráfego.",
-        relatedServiceId: "guia-de-trafego",
-        whatsappMessage: "Preciso de orientação sobre Guia de Tráfego."
-      },
-      {
-        id: "pf",
-        label: "Tenho um processo na Polícia Federal",
-        icon: "lock",
-        response:
-          "Envie um resumo do processo e das dúvidas para uma análise documental inicial.",
-        relatedServiceId: "processos-pf",
-        whatsappMessage: "Tenho um processo relacionado à Polícia Federal e quero orientação."
+          "Sem problema. Envie um resumo do que precisa resolver para uma orientação inicial.",
+        relatedServiceId: null,
+        whatsappMessage: "Ainda não sei qual processo preciso e quero orientação inicial."
       },
       {
         id: "falar-kacia",
@@ -477,14 +680,14 @@ export const kaciaDespachanteProspect = {
         icon: "whatsapp",
         response: "Perfeito. Continue pelo WhatsApp e envie um resumo da sua situação.",
         relatedServiceId: null,
-        whatsappMessage: "Quero falar com a Kacia e solicitar uma análise inicial."
+        whatsappMessage: "Quero falar com a Kacia e solicitar uma orientação inicial."
       }
     ]
   },
   seo: {
-    title: "Kacia Despachante de Armas | Posse, CAC, CR, CRAF e GT",
+    title: "Kacia Despachante de Armas | CR, CAC, CRAF e Renovação",
     description:
-      "Assessoria documental para posse, CAC, CR, CRAF, Guia de Tráfego e processos na Polícia Federal, com atendimento em todo o Brasil.",
+      "Assessoria documental para CR, CAC, CRAF, Guia de Tráfego, renovação, posse e processos na Polícia Federal, com atendimento nacional.",
     canonical: null,
     allowIndexing: false
   },

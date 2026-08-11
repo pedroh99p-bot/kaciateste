@@ -50,6 +50,57 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
     errors.push(`${prospect.slug}: ao menos um serviço precisa estar habilitado`);
   }
 
+  for (const service of prospect.enabledServices) {
+    if (!service.ctaLabel.trim() || !service.whatsappMessage.trim()) {
+      errors.push(`${prospect.slug}: serviço ${service.id} precisa de CTA e mensagem de WhatsApp`);
+    }
+  }
+
+  if (prospect.packages.enabled) {
+    if (!prospect.enabledPackages.length) {
+      errors.push(`${prospect.slug}: packages.enabled está true, mas não há pacotes habilitados`);
+    }
+
+    for (const item of prospect.enabledPackages) {
+      if (
+        !item.name.trim() ||
+        !item.price.trim() ||
+        !item.description.trim() ||
+        !item.items.length ||
+        !item.ctaLabel.trim() ||
+        !item.whatsappMessage.trim()
+      ) {
+        errors.push(`${prospect.slug}: pacote ${item.id} está incompleto`);
+      }
+    }
+  }
+
+  if (prospect.renewal.enabled) {
+    if (!prospect.renewal.prices.length) {
+      errors.push(`${prospect.slug}: renewal.enabled está true, mas não há preços cadastrados`);
+    }
+
+    if (!prospect.renewal.ctaLabel.trim() || !prospect.renewal.whatsappMessage.trim()) {
+      errors.push(`${prospect.slug}: renovação precisa de CTA e mensagem de WhatsApp`);
+    }
+  }
+
+  if (prospect.reports.enabled && !prospect.enabledReports.length) {
+    errors.push(`${prospect.slug}: reports.enabled está true, mas não há etapas habilitadas`);
+  }
+
+  if (prospect.faq.enabled) {
+    if (!prospect.enabledFaqItems.length) {
+      errors.push(`${prospect.slug}: faq.enabled está true, mas não há perguntas habilitadas`);
+    }
+
+    for (const item of prospect.enabledFaqItems) {
+      if (!item.question.trim() || !item.answer.trim()) {
+        errors.push(`${prospect.slug}: FAQ ${item.id} precisa de pergunta e resposta`);
+      }
+    }
+  }
+
   if (!/^55\d{10,11}$/.test(prospect.contact.whatsapp)) {
     errors.push(
       `${prospect.slug}: contact.whatsapp deve estar normalizado com 55 + DDD + número`

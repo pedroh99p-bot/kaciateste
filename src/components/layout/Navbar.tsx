@@ -2,18 +2,19 @@ import type { IconName, ResolvedProspect } from "@/prospects/types";
 import { ImageWithFallback } from "@/components/ui/ImageWithFallback";
 import { MobileMenu } from "./MobileMenu";
 
-const navLinks: Array<{ href: string; label: string; icon: IconName }> = [
-  { href: "#servicos", label: "Serviços", icon: "clipboard" },
-  { href: "#especialista", label: "Especialista", icon: "user" },
-  { href: "#como-funciona", label: "Como funciona", icon: "route" },
-  { href: "#localizacao", label: "Localização", icon: "map" }
-];
-
 type NavbarProps = {
   prospect: ResolvedProspect;
 };
 
 export function Navbar({ prospect }: NavbarProps) {
+  const navLinks: Array<{ href: string; label: string; icon: IconName }> = [
+    { href: "#especialista", label: prospect.copy.specialistNavLabel, icon: "user" },
+    { href: "#servicos", label: "Serviços", icon: "clipboard" },
+    { href: "#pacotes", label: "Pacotes", icon: "star" },
+    { href: "#faq", label: "Dúvidas", icon: "message" },
+    { href: "#localizacao", label: "Localização", icon: "map" }
+  ];
+
   return (
     <header className="navbar navbar--menu-only">
       <a className="navbar__brand" href={`/${prospect.slug}`} aria-label={`Início - ${prospect.business.name}`}>

@@ -45,7 +45,7 @@ export function LocationSection({ prospect }: LocationSectionProps) {
               </Button>
             ) : null}
             <Button href={whatsappHref} icon="whatsapp" variant="whatsapp">
-              Falar no WhatsApp
+              {prospect.copy.primaryCta}
             </Button>
           </div>
         </Reveal>
