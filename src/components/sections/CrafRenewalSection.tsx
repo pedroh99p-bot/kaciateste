@@ -1,10 +1,8 @@
 import type { ResolvedProspect } from "@/prospects/types";
-import { createWhatsAppHref } from "@/lib/whatsapp";
 import { Reveal } from "@/components/animations/Reveal";
-import { Button } from "@/components/ui/Button";
+import { RenewalConfigurator } from "@/components/commercial/RenewalConfigurator";
 import { HighlightText } from "@/components/ui/HighlightText";
 import { Icon } from "@/components/ui/Icon";
-import { RenewalPriceList } from "@/components/ui/RenewalPriceList";
 
 type CrafRenewalSectionProps = {
   prospect: ResolvedProspect;
@@ -17,14 +15,8 @@ export function CrafRenewalSection({ prospect }: CrafRenewalSectionProps) {
     return null;
   }
 
-  const href = createWhatsAppHref(prospect.contact.whatsapp, prospect.contact.defaultMessage, {
-    origin: "renovacao-craf",
-    selectedService: "Renovação de CRAF",
-    customerMessage: renewal.whatsappMessage
-  });
-
   return (
-    <section className="section renewal" data-section-tone="dark" id="renovacao-craf">
+    <section className="section renewal commercial-section" data-section-tone="dark" id="renovacao-craf">
       <div className="renewal__layout">
         <Reveal className="renewal__content">
           <p className="eyebrow">
@@ -36,14 +28,17 @@ export function CrafRenewalSection({ prospect }: CrafRenewalSectionProps) {
           </h2>
           <p className="renewal__subtitle">{renewal.subtitle}</p>
           <p className="renewal__description">{renewal.description}</p>
-          <Button href={href} icon="whatsapp" variant="whatsapp">
-            {renewal.ctaLabel}
-          </Button>
         </Reveal>
         <Reveal className="renewal__prices" delay={80}>
-          <RenewalPriceList
+          <RenewalConfigurator
             additionalLabel={renewal.additionalLabel}
-            items={renewal.prices}
+            benefits={renewal.benefits}
+            ctaLabel={renewal.ctaLabel}
+            defaultMessage={prospect.contact.defaultMessage}
+            initialQuantity={renewal.initialQuantity}
+            options={renewal.prices}
+            phone={prospect.contact.whatsapp}
+            whatsappMessage={renewal.whatsappMessage}
           />
           {renewal.disclaimer ? (
             <p className="commercial-disclaimer">{renewal.disclaimer}</p>

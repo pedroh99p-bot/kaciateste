@@ -37,6 +37,7 @@ export type IconName =
   | "lock"
   | "map"
   | "message"
+  | "minus"
   | "phone"
   | "route"
   | "shield"
@@ -88,6 +89,15 @@ export type ThemeConfig = {
   backgroundSoft: string;
   surface: string;
   surfaceElevated: string;
+  commercialSurfaceBase: string;
+  commercialSurfacePanel: string;
+  commercialSurfaceElevated: string;
+  commercialSurfaceHighlight: string;
+  commercialSurfaceSolid: string;
+  goldPrimary: string;
+  goldMuted: string;
+  goldBorder: string;
+  goldForeground: string;
   text: string;
   textInverse: string;
   muted: string;
@@ -175,15 +185,25 @@ export type ServiceConfig = {
   whatsappMessage: string;
 };
 
+export type CommercialFeatureConfig = {
+  id: string;
+  title: string;
+  shortTitle: string;
+  description: string;
+  icon: IconName;
+};
+
 export type PackageConfig = {
   id: string;
   name: string;
+  shortName: string;
   eyebrow: string | null;
   badge: string | null;
   price: string;
   installments: string | null;
   description: string;
-  items: string[];
+  featureIds: string[];
+  cardFeatureIds: string[];
   ctaLabel: string;
   whatsappMessage: string;
   featured: boolean;
@@ -199,6 +219,33 @@ export type PackagesConfig = {
   items: PackageConfig[];
 };
 
+export type PackageComparisonConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  subtitle: string;
+  packageIds: string[];
+  featureIds: string[];
+};
+
+export type InclusionTabConfig = {
+  id: string;
+  label: string;
+  shortLabel: string;
+  description: string;
+  packageId: string | null;
+  featureIds: string[];
+};
+
+export type InclusionsConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  subtitle: string;
+  defaultTabId: string | null;
+  tabs: InclusionTabConfig[];
+};
+
 export type RenewalPriceConfig = {
   quantity: number;
   label: string;
@@ -212,6 +259,8 @@ export type RenewalConfig = {
   subtitle: string;
   description: string;
   prices: RenewalPriceConfig[];
+  initialQuantity: number | null;
+  benefits: Array<{ label: string; icon: IconName }>;
   additionalLabel: string | null;
   disclaimer: string | null;
   ctaLabel: string;
@@ -406,7 +455,10 @@ export type ProspectConfig = {
   location: LocationConfig;
   assets: AssetsConfig;
   services: ServiceConfig[];
+  commercialFeatures: CommercialFeatureConfig[];
   packages: PackagesConfig;
+  packageComparison: PackageComparisonConfig;
+  inclusions: InclusionsConfig;
   renewal: RenewalConfig;
   reports: ReportsConfig;
   faq: FaqConfig;
@@ -438,7 +490,11 @@ export type ProspectConfigInput = DeepPartial<ProspectConfig> & {
 
 export type ResolvedProspect = ProspectConfig & {
   enabledServices: ServiceConfig[];
+  commercialFeatureMap: Record<string, CommercialFeatureConfig>;
   enabledPackages: PackageConfig[];
+  canShowPackageComparison: boolean;
+  enabledInclusionTabs: InclusionTabConfig[];
+  canShowInclusions: boolean;
   enabledReports: ReportConfig[];
   enabledFaqItems: FaqItemConfig[];
   visibleRollerItems: RollerConfig["items"];

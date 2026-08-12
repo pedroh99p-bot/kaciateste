@@ -45,6 +45,7 @@ export function validateProspectInput(input: ProspectConfigInput): string[] {
 
 export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
   const errors: string[] = [];
+  const duplicateIds = (ids: string[]) => ids.filter((id, index) => ids.indexOf(id) !== index);
 
   if (!prospect.enabledServices.length) {
     errors.push(`${prospect.slug}: ao menos um serviço precisa estar habilitado`);
@@ -61,16 +62,107 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
       errors.push(`${prospect.slug}: packages.enabled está true, mas não há pacotes habilitados`);
     }
 
+    const duplicateFeatureIds = duplicateIds(prospect.commercialFeatures.map((item) => item.id));
+    const duplicatePackageIds = duplicateIds(prospect.packages.items.map((item) => item.id));
+    const featuredPackages = prospect.enabledPackages.filter((item) => item.featured);
+
+    if (duplicateFeatureIds.length) {
+      errors.push(`${prospect.slug}: IDs duplicados no catálogo comercial (${[...new Set(duplicateFeatureIds)].join(", ")})`);
+    }
+
+    if (duplicatePackageIds.length) {
+      errors.push(`${prospect.slug}: IDs duplicados em packages (${[...new Set(duplicatePackageIds)].join(", ")})`);
+    }
+
+    if (featuredPackages.length > 1) {
+      errors.push(`${prospect.slug}: apenas um pacote pode estar destacado`);
+    }
+
+    for (const feature of prospect.commercialFeatures) {
+      if (!feature.id.trim() || !feature.title.trim() || !feature.shortTitle.trim()) {
+        errors.push(`${prospect.slug}: funcionalidade comercial ${feature.id || "sem-id"} está incompleta`);
+      }
+    }
+
     for (const item of prospect.enabledPackages) {
       if (
         !item.name.trim() ||
+        !item.shortName.trim() ||
         !item.price.trim() ||
         !item.description.trim() ||
-        !item.items.length ||
+        !item.featureIds.length ||
+        !item.cardFeatureIds.length ||
         !item.ctaLabel.trim() ||
         !item.whatsappMessage.trim()
       ) {
         errors.push(`${prospect.slug}: pacote ${item.id} está incompleto`);
+      }
+
+      if (item.cardFeatureIds.length > 4) {
+        errors.push(`${prospect.slug}: pacote ${item.id} pode exibir no máximo 4 benefícios no card`);
+      }
+
+      for (const featureId of [...item.featureIds, ...item.cardFeatureIds]) {
+        if (!prospect.commercialFeatureMap[featureId]) {
+          errors.push(`${prospect.slug}: pacote ${item.id} referencia a funcionalidade inexistente ${featureId}`);
+        }
+      }
+
+      if (item.cardFeatureIds.some((featureId) => !item.featureIds.includes(featureId))) {
+        errors.push(`${prospect.slug}: benefícios resumidos de ${item.id} precisam existir no escopo completo do pacote`);
+      }
+    }
+  }
+
+  if (prospect.packageComparison.enabled) {
+    if (!prospect.canShowPackageComparison) {
+      errors.push(`${prospect.slug}: comparação de pacotes está incompleta ou possui referências inválidas`);
+    }
+
+    for (const packageId of prospect.packageComparison.packageIds) {
+      if (!prospect.enabledPackages.some((item) => item.id === packageId)) {
+        errors.push(`${prospect.slug}: comparação referencia o pacote inexistente ${packageId}`);
+      }
+    }
+
+    for (const featureId of prospect.packageComparison.featureIds) {
+      if (!prospect.commercialFeatureMap[featureId]) {
+        errors.push(`${prospect.slug}: comparação referencia a funcionalidade inexistente ${featureId}`);
+      }
+    }
+  }
+
+  if (prospect.inclusions.enabled) {
+    const duplicateTabIds = duplicateIds(prospect.inclusions.tabs.map((tab) => tab.id));
+
+    if (duplicateTabIds.length) {
+      errors.push(`${prospect.slug}: IDs duplicados nas tabs de inclusões (${[...new Set(duplicateTabIds)].join(", ")})`);
+    }
+
+    if (!prospect.canShowInclusions) {
+      errors.push(`${prospect.slug}: seção de inclusões está incompleta`);
+    }
+
+    if (
+      prospect.inclusions.defaultTabId &&
+      !prospect.inclusions.tabs.some((tab) => tab.id === prospect.inclusions.defaultTabId)
+    ) {
+      errors.push(`${prospect.slug}: tab padrão de inclusões não existe`);
+    }
+
+    for (const tab of prospect.inclusions.tabs) {
+      if (!tab.label.trim() || !tab.shortLabel.trim() || !tab.description.trim()) {
+        errors.push(`${prospect.slug}: tab ${tab.id} está incompleta`);
+      }
+
+      if (tab.packageId && !prospect.enabledPackages.some((item) => item.id === tab.packageId)) {
+        errors.push(`${prospect.slug}: tab ${tab.id} referencia o pacote inexistente ${tab.packageId}`);
+      }
+
+      for (const featureId of tab.featureIds) {
+        if (!prospect.commercialFeatureMap[featureId]) {
+          errors.push(`${prospect.slug}: tab ${tab.id} referencia a funcionalidade inexistente ${featureId}`);
+        }
       }
     }
   }
@@ -82,6 +174,24 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
 
     if (!prospect.renewal.ctaLabel.trim() || !prospect.renewal.whatsappMessage.trim()) {
       errors.push(`${prospect.slug}: renovação precisa de CTA e mensagem de WhatsApp`);
+    }
+
+    const duplicateQuantities = duplicateIds(prospect.renewal.prices.map((item) => String(item.quantity)));
+    if (duplicateQuantities.length) {
+      errors.push(`${prospect.slug}: há quantidades duplicadas na renovação`);
+    }
+
+    for (const item of prospect.renewal.prices) {
+      if (item.quantity < 1 || !item.label.trim() || !item.price.trim()) {
+        errors.push(`${prospect.slug}: opção de renovação ${item.quantity} está incompleta`);
+      }
+    }
+
+    if (
+      prospect.renewal.initialQuantity !== null &&
+      !prospect.renewal.prices.some((item) => item.quantity === prospect.renewal.initialQuantity)
+    ) {
+      errors.push(`${prospect.slug}: quantidade inicial da renovação não existe na lista de preços`);
     }
   }
 

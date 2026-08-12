@@ -150,6 +150,7 @@ export const defaultProspectConfig: ProspectConfig = {
       whatsappMessage: "Quero orientação sobre primeiro emplacamento."
     }
   ],
+  commercialFeatures: [],
   packages: {
     enabled: false,
     eyebrow: "Investimento",
@@ -163,6 +164,32 @@ export const defaultProspectConfig: ProspectConfig = {
     disclaimer: null,
     items: []
   },
+  packageComparison: {
+    enabled: false,
+    eyebrow: "Comparativo",
+    headline: {
+      before: "Compare as",
+      highlight: "opções",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Veja as principais diferenças entre os atendimentos disponíveis.",
+    packageIds: [],
+    featureIds: []
+  },
+  inclusions: {
+    enabled: false,
+    eyebrow: "Detalhes do atendimento",
+    headline: {
+      before: "O que está",
+      highlight: "incluso",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Selecione uma opção para conferir os detalhes.",
+    defaultTabId: null,
+    tabs: []
+  },
   renewal: {
     enabled: false,
     eyebrow: "Renovação documental",
@@ -175,6 +202,8 @@ export const defaultProspectConfig: ProspectConfig = {
     subtitle: "Confira as opções cadastradas para o seu caso.",
     description: "A orientação depende da análise dos documentos e requisitos aplicáveis.",
     prices: [],
+    initialQuantity: null,
+    benefits: [],
     additionalLabel: null,
     disclaimer: null,
     ctaLabel: "Falar sobre renovação",
@@ -369,6 +398,15 @@ export const defaultProspectConfig: ProspectConfig = {
     backgroundSoft: "#061d33",
     surface: "#092844",
     surfaceElevated: "#0b3153",
+    commercialSurfaceBase: "#061525",
+    commercialSurfacePanel: "rgba(9, 40, 68, 0.92)",
+    commercialSurfaceElevated: "rgba(11, 49, 83, 0.94)",
+    commercialSurfaceHighlight: "rgba(14, 58, 96, 0.96)",
+    commercialSurfaceSolid: "#092844",
+    goldPrimary: "#2e82c4",
+    goldMuted: "#79bdf0",
+    goldBorder: "rgba(121, 189, 240, 0.26)",
+    goldForeground: "#f2f8fd",
     text: "#ffffff",
     textInverse: "#05223a",
     muted: "#b8cbe0",

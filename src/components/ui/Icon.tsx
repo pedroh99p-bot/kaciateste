@@ -72,6 +72,7 @@ const paths: Record<IconName, JSX.Element> = {
       <path d="M8 12h.01M12 12h.01M16 12h.01" />
     </>
   ),
+  minus: <path d="M5 12h14" />,
   phone: (
     <path d="M6 4 4 6c0 8 6 14 14 14l2-2-4-4-2 2c-3-1-5-3-6-6l2-2-4-4Z" />
   ),

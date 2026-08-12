@@ -182,6 +182,92 @@ export const kaciaDespachanteProspect = {
       whatsappMessage: "Quero orientação sobre regularização documental."
     }
   ],
+  commercialFeatures: [
+    {
+      id: "emissao-cr",
+      title: "Emissão do CR pela Polícia Federal",
+      shortTitle: "Emissão do CR",
+      description: "Orientação documental para o processo de emissão do Certificado de Registro.",
+      icon: "document"
+    },
+    {
+      id: "filiacao-entidade",
+      title: "Orientação para filiação à entidade aplicável",
+      shortTitle: "Orientação para filiação",
+      description: "Direcionamento sobre a filiação aplicável ao processo, conforme o caso.",
+      icon: "user"
+    },
+    {
+      id: "laudos-certidoes",
+      title: "Orientação para documentação, laudos e certidões",
+      shortTitle: "Laudos e certidões",
+      description: "Orientação sobre documentos, laudos e certidões que podem ser aplicáveis.",
+      icon: "badge-check"
+    },
+    {
+      id: "acompanhamento",
+      title: "Suporte durante o processo",
+      shortTitle: "Acompanhamento",
+      description: "Suporte documental durante as etapas do atendimento.",
+      icon: "message"
+    },
+    {
+      id: "autorizacao-aquisicao",
+      title: "Processo relacionado à autorização de aquisição",
+      shortTitle: "Autorização de aquisição",
+      description: "Organização documental relacionada à autorização de aquisição, quando aplicável.",
+      icon: "clipboard"
+    },
+    {
+      id: "craf",
+      title: "Processo relacionado ao CRAF",
+      shortTitle: "CRAF",
+      description: "Orientação e organização documental para o processo relacionado ao CRAF.",
+      icon: "document"
+    },
+    {
+      id: "guia-trafego",
+      title: "Processo relacionado à Guia de Tráfego",
+      shortTitle: "Guia de Tráfego",
+      description: "Orientação sobre documentos e etapas aplicáveis à Guia de Tráfego.",
+      icon: "route"
+    },
+    {
+      id: "orientacao-complementar",
+      title: "Orientação complementar",
+      shortTitle: "Orientação complementar",
+      description: "Direcionamento sobre etapas complementares que podem integrar o processo.",
+      icon: "shield"
+    },
+    {
+      id: "renovacao-craf",
+      title: "Assessoria para renovação de CRAF",
+      shortTitle: "Renovação do CRAF",
+      description: "Organização documental para iniciar o processo de renovação do CRAF.",
+      icon: "calendar"
+    },
+    {
+      id: "orientacao-documental",
+      title: "Orientação documental",
+      shortTitle: "Orientação documental",
+      description: "Direcionamento inicial sobre documentos e próximos passos aplicáveis ao caso.",
+      icon: "clipboard"
+    },
+    {
+      id: "multiplos-crafs",
+      title: "Opções para múltiplos CRAFs",
+      shortTitle: "Múltiplos CRAFs",
+      description: "Opções configuradas de atendimento para diferentes quantidades de CRAFs.",
+      icon: "document"
+    },
+    {
+      id: "posse-orientacao",
+      title: "Orientação para demandas relacionadas à posse",
+      shortTitle: "Orientação sobre posse",
+      description: "Análise inicial e organização documental para demandas relacionadas à posse de arma.",
+      icon: "shield"
+    }
+  ],
   packages: {
     enabled: true,
     eyebrow: "Investimento",
@@ -198,18 +284,14 @@ export const kaciaDespachanteProspect = {
       {
         id: "cr-atirador",
         name: "CR Atirador Desportivo",
+        shortName: "CR Atirador",
         eyebrow: null,
         badge: null,
         price: "R$ 2.000,00",
         installments: "18x de R$ 129,00",
         description: "Assessoria para o processo de emissão do CR.",
-        items: [
-          "Emissão do CR pela Polícia Federal",
-          "Orientação para filiação à entidade aplicável",
-          "Orientação para documentação e laudos",
-          "Certidões necessárias",
-          "Suporte durante o processo"
-        ],
+        featureIds: ["emissao-cr", "filiacao-entidade", "laudos-certidoes", "acompanhamento"],
+        cardFeatureIds: ["emissao-cr", "laudos-certidoes", "acompanhamento"],
         ctaLabel: "QUERO ESTE",
         whatsappMessage:
           "Olá, Kacia. Vi no site o pacote CR Atirador Desportivo e gostaria de entender como funciona.",
@@ -219,18 +301,23 @@ export const kaciaDespachanteProspect = {
       {
         id: "cr-completo-arma",
         name: "CR Completo + Arma",
+        shortName: "CR Completo + Arma",
         eyebrow: null,
         badge: "Mais procurado",
         price: "R$ 3.000,00",
         installments: "18x de R$ 190,00",
         description: "Assessoria documental que reúne etapas complementares do processo.",
-        items: [
-          "Tudo do pacote CR Atirador",
-          "Processo relacionado à autorização de aquisição",
-          "CRAF",
-          "Guia de Tráfego",
-          "Orientação complementar"
+        featureIds: [
+          "emissao-cr",
+          "filiacao-entidade",
+          "laudos-certidoes",
+          "acompanhamento",
+          "autorizacao-aquisicao",
+          "craf",
+          "guia-trafego",
+          "orientacao-complementar"
         ],
+        cardFeatureIds: ["emissao-cr", "autorizacao-aquisicao", "craf", "guia-trafego"],
         ctaLabel: "QUERO ESTE PACOTE",
         whatsappMessage:
           "Olá, Kacia. Vi no site o pacote CR Completo + Arma e gostaria de entender como funciona.",
@@ -240,22 +327,85 @@ export const kaciaDespachanteProspect = {
       {
         id: "renovacao-craf",
         name: "Renovação de CRAF",
+        shortName: "Renovação de CRAF",
         eyebrow: "A partir de",
         badge: null,
         price: "R$ 800,00",
         installments: null,
         description: "Assessoria para organizar o processo documental de renovação do CRAF.",
-        items: [
-          "Assessoria para renovação",
-          "Orientação documental",
-          "Opções para múltiplos CRAFs",
-          "Suporte durante o processo"
-        ],
+        featureIds: ["renovacao-craf", "orientacao-documental", "multiplos-crafs", "acompanhamento"],
+        cardFeatureIds: ["renovacao-craf", "orientacao-documental", "multiplos-crafs", "acompanhamento"],
         ctaLabel: "QUERO RENOVAR",
         whatsappMessage:
           "Olá, Kacia. Vi no site a opção de Renovação de CRAF e gostaria de entender como funciona.",
         featured: false,
         enabled: true
+      }
+    ]
+  },
+  packageComparison: {
+    enabled: true,
+    eyebrow: "Diferenças principais",
+    headline: {
+      before: "Compare os",
+      highlight: "pacotes",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Entenda rapidamente as principais diferenças entre as duas opções de CR.",
+    packageIds: ["cr-atirador", "cr-completo-arma"],
+    featureIds: [
+      "emissao-cr",
+      "laudos-certidoes",
+      "acompanhamento",
+      "autorizacao-aquisicao",
+      "craf",
+      "guia-trafego"
+    ]
+  },
+  inclusions: {
+    enabled: true,
+    eyebrow: "Detalhes do atendimento",
+    headline: {
+      before: "O que está",
+      highlight: "incluso",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Selecione um processo para conferir o escopo apresentado no site.",
+    defaultTabId: "cr-atirador",
+    tabs: [
+      {
+        id: "cr-atirador",
+        label: "CR Atirador",
+        shortLabel: "CR Atirador",
+        description: "Assessoria para o processo de emissão do CR.",
+        packageId: "cr-atirador",
+        featureIds: []
+      },
+      {
+        id: "cr-completo-arma",
+        label: "CR Completo + Arma",
+        shortLabel: "CR Completo",
+        description: "Assessoria documental que reúne etapas complementares do processo.",
+        packageId: "cr-completo-arma",
+        featureIds: []
+      },
+      {
+        id: "posse",
+        label: "Posse",
+        shortLabel: "Posse",
+        description: "Orientação e organização documental para demandas relacionadas à posse de arma.",
+        packageId: null,
+        featureIds: ["posse-orientacao", "orientacao-documental", "laudos-certidoes", "acompanhamento"]
+      },
+      {
+        id: "renovacao",
+        label: "Renovação",
+        shortLabel: "Renovação",
+        description: "Assessoria para organizar o processo documental de renovação do CRAF.",
+        packageId: "renovacao-craf",
+        featureIds: []
       }
     ]
   },
@@ -279,6 +429,12 @@ export const kaciaDespachanteProspect = {
       { quantity: 5, label: "5 CRAFs", price: "R$ 1.800" },
       { quantity: 6, label: "6 CRAFs", price: "R$ 2.000" }
     ],
+    initialQuantity: 1,
+    benefits: [
+      { label: "Atendimento pelo WhatsApp", icon: "whatsapp" },
+      { label: "Organização documental", icon: "clipboard" },
+      { label: "Suporte durante o processo", icon: "message" }
+    ],
     additionalLabel: "+ R$ 200 por arma adicional",
     disclaimer:
       "Valores do briefing comercial. Confirme condições, taxas e documentos aplicáveis antes de contratar.",
@@ -301,7 +457,7 @@ export const kaciaDespachanteProspect = {
         id: "laudo-psicologico",
         title: "Laudo psicológico",
         description:
-          "Orientação para realização com profissional credenciado, quando aplicável ao processo.",
+          "Orientação sobre a etapa de avaliação psicológica, quando aplicável ao processo.",
         icon: "user",
         enabled: true
       },
@@ -499,6 +655,15 @@ export const kaciaDespachanteProspect = {
     backgroundSoft: "#090805",
     surface: "#11100c",
     surfaceElevated: "#1a170e",
+    commercialSurfaceBase: "#050504",
+    commercialSurfacePanel: "rgba(17, 16, 12, 0.94)",
+    commercialSurfaceElevated: "rgba(25, 22, 14, 0.95)",
+    commercialSurfaceHighlight: "rgba(30, 25, 12, 0.97)",
+    commercialSurfaceSolid: "#11100c",
+    goldPrimary: "#e4b94c",
+    goldMuted: "#caa85a",
+    goldBorder: "rgba(228, 185, 76, 0.28)",
+    goldForeground: "#080705",
     text: "#fffdf6",
     textInverse: "#fffdf6",
     muted: "#c9c1ad",

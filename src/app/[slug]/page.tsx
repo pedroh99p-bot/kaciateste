@@ -14,8 +14,10 @@ import { CrafRenewalSection } from "@/components/sections/CrafRenewalSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { HeroSection } from "@/components/sections/HeroSection";
+import { InclusionsSection } from "@/components/sections/InclusionsSection";
 import { LocationSection } from "@/components/sections/LocationSection";
 import { PackagesSection } from "@/components/sections/PackagesSection";
+import { PackageComparisonSection } from "@/components/sections/PackageComparisonSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
 import { ReportsSection } from "@/components/sections/ReportsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
@@ -73,6 +75,8 @@ export default async function ProspectPage({ params }: PageProps) {
         <SectionDivider variant="diagonal" />
         <ServicesSection prospect={prospect} />
         <PackagesSection prospect={prospect} />
+        <PackageComparisonSection prospect={prospect} />
+        <InclusionsSection prospect={prospect} />
         <CrafRenewalSection prospect={prospect} />
         <ReportsSection prospect={prospect} />
         <ProcessSection prospect={prospect} />

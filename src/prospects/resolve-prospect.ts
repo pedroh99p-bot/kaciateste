@@ -72,9 +72,36 @@ export function resolveProspect(input: ProspectConfigInput): ResolvedProspect {
   };
 
   const enabledServices = withCopy.services.filter((service) => service.enabled);
+  const commercialFeatureMap = Object.fromEntries(
+    withCopy.commercialFeatures.map((feature) => [feature.id, feature])
+  );
   const enabledPackages = withCopy.packages.enabled
     ? withCopy.packages.items.filter((item) => item.enabled)
     : [];
+  const enabledPackageIds = new Set(enabledPackages.map((item) => item.id));
+  const canShowPackageComparison =
+    withCopy.packageComparison.enabled &&
+    withCopy.packageComparison.packageIds.length === 2 &&
+    withCopy.packageComparison.packageIds.every((id) => enabledPackageIds.has(id)) &&
+    withCopy.packageComparison.featureIds.length > 0 &&
+    withCopy.packageComparison.featureIds.every((id) => Boolean(commercialFeatureMap[id]));
+  const enabledInclusionTabs = withCopy.inclusions.enabled
+    ? withCopy.inclusions.tabs.filter((tab) => {
+        const featureIds = tab.packageId
+          ? enabledPackages.find((item) => item.id === tab.packageId)?.featureIds ?? []
+          : tab.featureIds;
+
+        return featureIds.length > 0 && featureIds.every((id) => Boolean(commercialFeatureMap[id]));
+      })
+    : [];
+  const canShowInclusions =
+    withCopy.inclusions.enabled &&
+    enabledInclusionTabs.length > 0 &&
+    Boolean(
+      enabledInclusionTabs.find(
+        (tab) => tab.id === (withCopy.inclusions.defaultTabId ?? enabledInclusionTabs[0]?.id)
+      )
+    );
   const enabledReports = withCopy.reports.enabled
     ? withCopy.reports.items.filter((item) => item.enabled)
     : [];
@@ -93,7 +120,11 @@ export function resolveProspect(input: ProspectConfigInput): ResolvedProspect {
   return {
     ...withCopy,
     enabledServices,
+    commercialFeatureMap,
     enabledPackages,
+    canShowPackageComparison,
+    enabledInclusionTabs,
+    canShowInclusions,
     enabledReports,
     enabledFaqItems,
     canShowProof,

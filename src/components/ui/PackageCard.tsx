@@ -1,15 +1,16 @@
-import type { PackageConfig } from "@/prospects/types";
+import type { CommercialFeatureConfig, PackageConfig } from "@/prospects/types";
 import { Button } from "./Button";
 import { Icon } from "./Icon";
 
 type PackageCardProps = {
   item: PackageConfig;
   href: string;
+  features: CommercialFeatureConfig[];
 };
 
-export function PackageCard({ item, href }: PackageCardProps) {
+export function PackageCard({ item, href, features }: PackageCardProps) {
   return (
-    <article className={`package-card${item.featured ? " package-card--featured" : ""}`}>
+    <article className={`package-card${item.featured ? " package-card--featured" : ""}`} data-package-card>
       {item.badge ? <span className="package-card__badge">{item.badge}</span> : null}
       <div className="package-card__header">
         {item.eyebrow ? <span className="package-card__eyebrow">{item.eyebrow}</span> : null}
@@ -19,10 +20,10 @@ export function PackageCard({ item, href }: PackageCardProps) {
         <p className="package-card__description">{item.description}</p>
       </div>
       <ul className="package-card__items">
-        {item.items.map((benefit) => (
-          <li key={benefit}>
-            <Icon name="check" />
-            <span>{benefit}</span>
+        {features.map((feature) => (
+          <li key={feature.id}>
+            <Icon name={feature.icon} />
+            <span>{feature.shortTitle}</span>
           </li>
         ))}
       </ul>

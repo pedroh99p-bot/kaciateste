@@ -1,6 +1,7 @@
 import type { ResolvedProspect } from "@/prospects/types";
 import { createWhatsAppHref } from "@/lib/whatsapp";
 import { Reveal } from "@/components/animations/Reveal";
+import { PackageRail } from "@/components/commercial/PackageRail";
 import { PackageCard } from "@/components/ui/PackageCard";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
@@ -23,7 +24,7 @@ export function PackagesSection({ prospect }: PackagesSectionProps) {
           icon="star"
         />
       </Reveal>
-      <div className="packages__grid">
+      <PackageRail itemCount={prospect.enabledPackages.length}>
         {prospect.enabledPackages.map((item, index) => {
           const href = createWhatsAppHref(
             prospect.contact.whatsapp,
@@ -37,11 +38,15 @@ export function PackagesSection({ prospect }: PackagesSectionProps) {
 
           return (
             <Reveal key={item.id} delay={index * 70}>
-              <PackageCard href={href} item={item} />
+              <PackageCard
+                features={item.cardFeatureIds.map((featureId) => prospect.commercialFeatureMap[featureId])}
+                href={href}
+                item={item}
+              />
             </Reveal>
           );
         })}
-      </div>
+      </PackageRail>
       {prospect.packages.disclaimer ? (
         <Reveal delay={120}>
           <p className="commercial-disclaimer">{prospect.packages.disclaimer}</p>

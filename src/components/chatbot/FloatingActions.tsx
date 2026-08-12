@@ -20,7 +20,7 @@ export function FloatingActions({ prospect }: FloatingActionsProps) {
   useEffect(() => {
     const targets = Array.from(
       document.querySelectorAll(
-        ".hero__actions, .specialist__actions, .package-card .button, .renewal__content .button, .final-cta__actions, .location__actions, .whatsapp-group__content .button"
+        ".hero__actions, .specialist__actions, .package-card .button, .renewal-configurator__result .button, .final-cta__actions, .location__actions, .whatsapp-group__content .button"
       )
     );
 

@@ -13,7 +13,7 @@ export function ReportsSection({ prospect }: ReportsSectionProps) {
   }
 
   return (
-    <section className="section reports" data-section-tone="deep" id="laudos">
+    <section className="section reports commercial-section" data-section-tone="deep" id="laudos">
       <Reveal>
         <SectionHeading
           eyebrow={prospect.reports.eyebrow}
@@ -26,7 +26,9 @@ export function ReportsSection({ prospect }: ReportsSectionProps) {
         {prospect.enabledReports.map((item, index) => (
           <Reveal key={item.id} delay={index * 70}>
             <article className="report-card">
-              <Icon name={item.icon} />
+              <span className="commercial-icon">
+                <Icon name={item.icon} />
+              </span>
               <div>
                 <h3>{item.title}</h3>
                 <p>{item.description}</p>
