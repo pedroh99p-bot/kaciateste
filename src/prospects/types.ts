@@ -407,6 +407,13 @@ export type LayoutConfig = {
   servicesTone: "light" | "dark";
   contentTone: "light" | "dark";
   showBottomMobileCta: boolean;
+  pageProgress: {
+    enabled: boolean;
+    sections: Array<{
+      id: string;
+      label: string;
+    }>;
+  };
 };
 
 export type AnimationConfig = {

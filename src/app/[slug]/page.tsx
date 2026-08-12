@@ -8,6 +8,7 @@ import { FloatingActions } from "@/components/chatbot/FloatingActions";
 import { BottomMobileCta } from "@/components/layout/BottomMobileCta";
 import { Footer } from "@/components/layout/Footer";
 import { Navbar } from "@/components/layout/Navbar";
+import { PageProgress } from "@/components/layout/PageProgress";
 import { SectionDivider } from "@/components/layout/SectionDivider";
 import { AuthorityRoller } from "@/components/rollers/AuthorityRoller";
 import { CrafRenewalSection } from "@/components/sections/CrafRenewalSection";
@@ -67,6 +68,7 @@ export default async function ProspectPage({ params }: PageProps) {
     <div className="site-shell" style={createThemeStyle(prospect)}>
       <CurtainPreloader logo={prospect.assets.logo} preloader={prospect.preloader} />
       <Navbar prospect={prospect} />
+      <PageProgress config={prospect.layout.pageProgress} />
       <AuthorityRoller items={prospect.visibleRollerItems} roller={prospect.rollers.authority} />
       <main>
         <HeroSection prospect={prospect} />

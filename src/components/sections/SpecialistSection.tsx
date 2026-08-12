@@ -50,7 +50,6 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
                 sizes="(min-width: 940px) 38vw, 88vw"
               />
               <div className="specialist__photo-caption">
-                <strong>{prospect.specialist.name}</strong>
                 <span>{prospect.specialist.role}</span>
               </div>
             </div>

@@ -55,7 +55,7 @@ export const kaciaDespachanteProspect = {
     city: "Atendimento nacional",
     state: "Brasil",
     description:
-      "Kácia Miranda orienta e organiza processos documentais relacionados a CR, CRAF, CAC, Guia de Tráfego, posse e demandas perante a Polícia Federal.",
+      "Orienta e organiza processos documentais relacionados a CR, CRAF, CAC, Guia de Tráfego, posse e demandas perante a Polícia Federal.",
     signatureText: null,
     chips: [{ label: "Mais de 16 mil seguidores", icon: "instagram" }],
     credentials: [{ label: "Despachante", icon: "clipboard" }]
@@ -821,7 +821,27 @@ export const kaciaDespachanteProspect = {
     servicesVariant: "carousel",
     servicesTone: "dark",
     contentTone: "dark",
-    showBottomMobileCta: false
+    showBottomMobileCta: false,
+    pageProgress: {
+      enabled: true,
+      sections: [
+        { id: "inicio", label: "Início" },
+        { id: "consulta", label: "Consulta" },
+        { id: "especialista", label: "Especialista" },
+        { id: "servicos", label: "Serviços" },
+        { id: "pacotes", label: "Pacotes" },
+        { id: "comparar-pacotes", label: "Comparação" },
+        { id: "inclusoes", label: "Inclusões" },
+        { id: "renovacao-craf", label: "Renovação" },
+        { id: "laudos", label: "Etapas" },
+        { id: "como-funciona", label: "Processo" },
+        { id: "depoimentos", label: "Avaliações" },
+        { id: "faq", label: "Dúvidas" },
+        { id: "grupo-whatsapp", label: "Grupo" },
+        { id: "localizacao", label: "Escritório" },
+        { id: "contato", label: "Contato" }
+      ]
+    }
   },
   animations: {
     enabled: true,

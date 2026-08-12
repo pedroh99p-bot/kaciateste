@@ -528,7 +528,11 @@ export const defaultProspectConfig: ProspectConfig = {
     servicesVariant: "grid",
     servicesTone: "light",
     contentTone: "light",
-    showBottomMobileCta: false
+    showBottomMobileCta: false,
+    pageProgress: {
+      enabled: false,
+      sections: []
+    }
   },
   animations: {
     enabled: true,

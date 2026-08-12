@@ -18,12 +18,12 @@ export function normalizeWhatsAppNumber(phone: string): string {
 export function composeWhatsAppMessage(defaultMessage: string, context: WhatsAppContext = {}) {
   if (context.messageFormat === "lead-intake") {
     const leadLines = [
-      "📋 *CONSULTA RÁPIDA PELO SITE*",
+      "\u{1F4CB} *CONSULTA RÁPIDA PELO SITE*",
       "",
-      context.customerName ? `👤 *Nome:* ${context.customerName}` : null,
-      context.customerState ? `📍 *Estado:* ${context.customerState}` : null,
-      context.selectedService ? `🎯 *Serviço:* ${context.selectedService}` : null,
-      context.customerMessage ? `📝 *Situação atual:* ${context.customerMessage}` : null,
+      context.customerName ? `\u{1F464} *Nome:* ${context.customerName}` : null,
+      context.customerState ? `\u{1F4CD} *Estado:* ${context.customerState}` : null,
+      context.selectedService ? `\u{1F3AF} *Serviço:* ${context.selectedService}` : null,
+      context.customerMessage ? `\u{1F4DD} *Situação atual:* ${context.customerMessage}` : null,
       "",
       defaultMessage.trim(),
       "Gostaria de receber uma orientação inicial."

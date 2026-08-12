@@ -26,6 +26,10 @@ body.preloader-active {
   overflow: hidden;
 }
 
+body.quick-consult-modal-open {
+  overflow: hidden;
+}
+
 body.preloader-active:not(.preloader-leaving) .hero .reveal {
   opacity: 0 !important;
   filter: blur(8px);
@@ -418,6 +422,100 @@ select {
   min-height: 2.5rem;
   padding-inline: 0.82rem;
   font-size: 0.82rem;
+}
+
+.page-progress {
+  position: sticky;
+  z-index: 29;
+  top: 4.75rem;
+  display: grid;
+  gap: 0.38rem;
+  width: 100%;
+  min-height: 2.35rem;
+  padding: 0.38rem max(1rem, calc((100% - 1120px) / 2));
+  border-bottom: 1px solid color-mix(in srgb, var(--gold-primary) 18%, transparent);
+  background: color-mix(in srgb, var(--color-section-dark) 94%, transparent);
+  box-shadow: 0 10px 28px rgba(0, 0, 0, 0.18);
+  backdrop-filter: blur(18px);
+}
+
+.page-progress__meta {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr) auto;
+  gap: 0.38rem;
+  align-items: center;
+  color: var(--color-muted);
+  font-size: 0.64rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+
+.page-progress__meta strong {
+  overflow: hidden;
+  color: var(--gold-primary);
+  font-family: var(--font-label, var(--font-body));
+  font-size: 0.68rem;
+  letter-spacing: 0.07em;
+  text-overflow: ellipsis;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+.page-progress__track {
+  position: relative;
+  height: 0.34rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-text) 9%, transparent);
+}
+
+.page-progress__fill {
+  position: absolute;
+  z-index: 0;
+  inset: 0 auto 0 0;
+  width: var(--page-progress, 0%);
+  border-radius: inherit;
+  background: linear-gradient(90deg, var(--gold-muted), var(--gold-primary));
+  box-shadow: 0 0 12px color-mix(in srgb, var(--gold-primary) 52%, transparent);
+  transition: width 100ms linear;
+}
+
+.page-progress__track ol {
+  position: absolute;
+  z-index: 1;
+  inset: 0;
+  display: grid;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.page-progress__track li {
+  min-width: 0;
+  border-right: 1px solid color-mix(in srgb, var(--color-section-dark) 68%, transparent);
+}
+
+.page-progress__track li:last-child {
+  border-right: 0;
+}
+
+.page-progress__track a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+
+.page-progress__track a[aria-current="step"] {
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.page-progress__track a span {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .mobile-menu-shell {
@@ -1913,6 +2011,7 @@ select {
   border-bottom: 1px solid var(--commercial-border);
   border-left: 1px solid var(--commercial-border);
   text-align: center;
+  vertical-align: middle;
 }
 
 .comparison-table tr:last-child th,
@@ -1934,10 +2033,6 @@ select {
 }
 
 .comparison-table tbody th {
-  display: grid;
-  grid-template-columns: 1.25rem minmax(0, 1fr);
-  gap: 0.5rem;
-  align-items: center;
   color: var(--color-text);
   font-size: clamp(0.72rem, 3.2vw, 0.9rem);
   font-weight: 700;
@@ -1946,7 +2041,14 @@ select {
   text-wrap: pretty;
 }
 
-.comparison-table tbody th svg {
+.comparison-table__feature {
+  display: grid;
+  grid-template-columns: 1.25rem minmax(0, 1fr);
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.comparison-table__feature svg {
   width: 1.15rem;
   height: 1.15rem;
   color: var(--gold-muted);
@@ -2589,36 +2691,37 @@ select {
 
 .testimonials-carousel {
   position: relative;
+  margin-top: 1rem;
+  padding-top: 0.25rem;
+}
+
+.testimonials-carousel__viewport {
   overflow-x: auto;
   overflow-y: hidden;
-  margin-top: 1rem;
+  width: 100%;
   padding: 0.35rem 0 0.9rem;
+  scroll-behavior: smooth;
+  scroll-padding-inline: 0.15rem;
   scroll-snap-type: x mandatory;
   scrollbar-width: none;
-  mask-image: linear-gradient(90deg, transparent, #000 1.25rem, #000 calc(100% - 1.25rem), transparent);
+}
+
+.testimonials-carousel__viewport::-webkit-scrollbar {
+  display: none;
 }
 
 .testimonials-carousel__track {
   display: flex;
-  width: max-content;
   gap: 1rem;
-  padding-inline: max(1rem, calc((100vw - var(--container)) / 2));
-  will-change: transform;
-}
-
-.testimonials-carousel--auto .testimonials-carousel__track {
-  animation: testimonialsMarquee var(--testimonials-duration, 32s) linear infinite;
-}
-
-.testimonials-carousel:not(.testimonials-carousel--auto) .testimonials-carousel__track {
-  width: auto;
-  flex-wrap: wrap;
+  width: max-content;
+  padding-inline: 0.15rem;
 }
 
 .testimonials-carousel__slide {
   flex: 0 0 min(82vw, 22rem);
   padding: 0.15rem;
   scroll-snap-align: center;
+  scroll-snap-stop: always;
 }
 
 .testimonial-card {
@@ -2735,20 +2838,51 @@ select {
   height: 0.9rem;
 }
 
+.testimonials-carousel__controls {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  margin-bottom: 0.55rem;
+}
+
+.testimonials-carousel__controls p,
 .testimonials-carousel__hint {
-  position: sticky;
-  left: 1rem;
-  width: fit-content;
-  margin: 0.65rem auto 0;
+  margin: 0;
   color: var(--color-muted);
   font-size: 0.76rem;
   font-weight: 700;
-  text-align: center;
 }
 
-.testimonials-carousel--auto:hover .testimonials-carousel__track,
-.testimonials-carousel--auto:focus-within .testimonials-carousel__track {
-  animation-play-state: paused;
+.testimonials-carousel__controls > div {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.testimonials-carousel__controls button {
+  display: grid;
+  width: 2.6rem;
+  height: 2.6rem;
+  place-items: center;
+  border: 1px solid var(--commercial-border);
+  border-radius: 999px;
+  background: var(--commercial-surface-panel);
+  color: var(--gold-primary);
+  cursor: pointer;
+}
+
+.testimonials-carousel__controls button:first-child svg {
+  transform: rotate(180deg);
+}
+
+.testimonials-carousel__controls button:disabled {
+  opacity: 0.35;
+  cursor: default;
+}
+
+.testimonials-carousel__controls svg {
+  width: 1rem;
+  height: 1rem;
 }
 
 img {
@@ -2771,7 +2905,31 @@ img {
 }
 
 .testimonials-carousel__dots {
-  display: none;
+  display: flex;
+  justify-content: center;
+  gap: 0.45rem;
+  margin-top: 0.35rem;
+}
+
+.testimonials-carousel__dots button {
+  width: 0.45rem;
+  height: 0.45rem;
+  padding: 0;
+  border: 0;
+  border-radius: 999px;
+  background: color-mix(in srgb, var(--color-text) 28%, transparent);
+  cursor: pointer;
+  transition: width 180ms ease, background 180ms ease;
+}
+
+.testimonials-carousel__dots button.is-active {
+  width: 1.4rem;
+  background: var(--gold-primary);
+}
+
+.testimonials-carousel__hint {
+  margin-top: 0.65rem;
+  text-align: center;
 }
 
 .location__header {
@@ -3166,239 +3324,129 @@ img {
   animation: floatingEnter 240ms ease var(--chatbot-delay, 0s) forwards;
 }
 
-.floating-actions.is-visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-  pointer-events: auto;
-}
-
-.floating-actions--suppressed {
-  opacity: 0 !important;
-  transform: translate3d(0, 12px, 0) !important;
-  pointer-events: none;
-}
-
 body.menu-is-open .floating-actions {
   visibility: hidden;
   pointer-events: none;
 }
 
-.floating-actions__whatsapp,
-.chatbot-launcher {
+.quick-consult-launcher {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  min-width: 3.35rem;
-  min-height: 3.35rem;
-  border: 0;
+  gap: 0.55rem;
+  min-width: 3.65rem;
+  min-height: 3.65rem;
+  padding: 0 1.05rem;
+  border: 1px solid color-mix(in srgb, var(--gold-primary) 66%, transparent);
   border-radius: 999px;
+  background: linear-gradient(135deg, var(--gold-primary), var(--color-primary));
   color: var(--color-primary-foreground);
-  box-shadow: 0 16px 36px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 16px 38px rgba(0, 0, 0, 0.34), 0 0 22px color-mix(in srgb, var(--gold-primary) 22%, transparent);
+  font-weight: 900;
+  cursor: pointer;
 }
 
-.floating-actions__whatsapp {
-  display: none;
-  background: var(--color-whatsapp);
-  transition: opacity 180ms ease, transform 180ms ease;
-}
-
-.floating-actions:has(.mini-chatbot-shell[open]) .floating-actions__whatsapp {
-  opacity: 0;
-  transform: scale(0.92);
-  pointer-events: none;
-}
-
-.floating-actions__whatsapp svg,
-.chatbot-launcher svg {
+.quick-consult-launcher svg {
   width: 1.35rem;
   height: 1.35rem;
 }
 
-.chatbot-launcher {
-  gap: 0.55rem;
-  padding: 0 1rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 20%, transparent);
-  background: linear-gradient(135deg, var(--color-primary-strong), var(--color-primary));
-  font-weight: 850;
-  cursor: pointer;
-}
-
-.mini-chatbot-shell {
-  display: flex;
-  flex-direction: column-reverse;
-  align-items: flex-end;
-}
-
-.mini-chatbot-shell summary {
-  list-style: none;
-}
-
-.mini-chatbot-shell summary::-webkit-details-marker {
+.quick-consult-launcher span {
   display: none;
 }
 
-.mini-chatbot-shell[open] .chatbot-launcher {
-  background: linear-gradient(135deg, var(--color-primary), var(--color-primary-soft));
+.quick-consult-modal__backdrop {
+  position: fixed;
+  z-index: 80;
+  inset: 0;
+  display: grid;
+  align-items: end;
+  padding: max(0.75rem, env(safe-area-inset-top)) max(0.75rem, env(safe-area-inset-right)) max(0.75rem, env(safe-area-inset-bottom)) max(0.75rem, env(safe-area-inset-left));
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  background: rgba(0, 0, 0, 0.76);
+  backdrop-filter: blur(12px);
+  animation: modalBackdropEnter 180ms ease both;
 }
 
-.chatbot-launcher span {
-  display: none;
-}
-
-.mini-chatbot {
-  width: min(calc(100vw - 2rem), 23rem);
-  max-height: min(72dvh, 38rem);
-  margin-bottom: 0.7rem;
+.quick-consult-modal {
+  width: min(100%, 42rem);
+  max-height: calc(100dvh - 1.5rem);
+  margin-inline: auto;
   padding: 1rem;
   overflow-y: auto;
   overscroll-behavior: contain;
-  border: 1px solid color-mix(in srgb, var(--color-text) 22%, transparent);
-  border-radius: 1.4rem;
+  border: 1px solid color-mix(in srgb, var(--gold-primary) 48%, transparent);
+  border-radius: 1.55rem;
   background:
-    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--color-primary) 18%, transparent), transparent 14rem),
-    color-mix(in srgb, var(--color-section-deep) 96%, #000);
-  color: #fff;
-  box-shadow: 0 24px 70px rgba(0, 0, 0, 0.45);
+    radial-gradient(circle at 100% 0%, color-mix(in srgb, var(--gold-primary) 14%, transparent), transparent 18rem),
+    var(--commercial-surface-base);
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.62);
+  animation: modalPanelEnter 240ms cubic-bezier(0.22, 1, 0.36, 1) both;
 }
 
-.mini-chatbot__header {
+.quick-consult-modal__heading {
   display: flex;
-  align-items: start;
+  align-items: flex-start;
   justify-content: space-between;
   gap: 1rem;
-  margin-bottom: 0.9rem;
+  padding: 0.2rem 0.2rem 1rem;
 }
 
-.mini-chatbot__header span {
-  color: var(--color-primary-soft);
-  font-size: 0.72rem;
+.quick-consult-modal__heading > div > span {
+  color: var(--gold-primary);
+  font-family: var(--font-label, var(--font-body));
+  font-size: 0.7rem;
   font-weight: 850;
   letter-spacing: 0.12em;
   text-transform: uppercase;
 }
 
-.mini-chatbot__header h2 {
-  margin: 0.2rem 0 0;
-  font-size: 1.2rem;
-  line-height: 1.1;
+.quick-consult-modal__heading h2 {
+  margin: 0.25rem 0 0;
+  font-size: clamp(1.45rem, 6vw, 2rem);
 }
 
-.mini-chatbot__close {
-  display: grid;
-  width: 2.4rem;
-  height: 2.4rem;
-  place-items: center;
-  border: 1px solid color-mix(in srgb, var(--color-text) 18%, transparent);
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.06);
-  color: #fff;
-  cursor: pointer;
-  transform: rotate(90deg);
-}
-
-.mini-chatbot__close svg {
-  width: 1rem;
-  height: 1rem;
-}
-
-.mini-chatbot__message {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.75rem;
-  padding: 0.85rem;
-  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
-  border-radius: 1rem;
-  background: rgba(255, 255, 255, 0.06);
-}
-
-.mini-chatbot__message svg {
-  width: 1.1rem;
-  height: 1.1rem;
-  color: var(--color-primary-soft);
-}
-
-.mini-chatbot__message p,
-.mini-chatbot__disclaimer {
-  margin: 0;
-  color: color-mix(in srgb, var(--color-text) 84%, transparent);
-  font-size: 0.88rem;
-  line-height: 1.45;
-}
-
-.mini-chatbot__options {
-  display: grid;
-  gap: 0.5rem;
-  margin-top: 0.8rem;
-}
-
-.mini-chatbot__reply {
-  overflow: hidden;
-  border: 1px solid color-mix(in srgb, var(--color-text) 14%, transparent);
-  border-radius: 0.95rem;
-  background: rgba(255, 255, 255, 0.045);
-}
-
-.mini-chatbot__reply[open] {
-  border-color: var(--color-primary-soft);
-  background: color-mix(in srgb, var(--color-primary) 14%, transparent);
-}
-
-.mini-chatbot__reply summary {
-  display: grid;
-  grid-template-columns: auto 1fr;
-  gap: 0.55rem;
-  align-items: center;
-  min-height: 2.7rem;
-  padding: 0.7rem 0.78rem;
-  color: #fff;
-  text-align: left;
-  cursor: pointer;
-}
-
-.mini-chatbot__options svg {
-  width: 1rem;
-  height: 1rem;
-  color: var(--color-primary-soft);
-}
-
-.mini-chatbot__reply p {
-  margin: 0;
-  padding: 0 0.85rem 0.75rem 2.35rem;
-  color: color-mix(in srgb, var(--color-text) 84%, transparent);
-  font-size: 0.84rem;
-  line-height: 1.45;
-}
-
-.mini-chatbot__reply a {
-  display: inline-flex;
-  margin: 0 0.85rem 0.85rem 2.35rem;
-  color: var(--color-primary-soft);
+.quick-consult-modal__heading p {
+  margin: 0.35rem 0 0;
+  color: var(--color-muted);
   font-size: 0.82rem;
-  font-weight: 850;
+  line-height: 1.45;
 }
 
-.mini-chatbot__cta {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 0.55rem;
-  min-height: 2.9rem;
-  margin-top: 0.85rem;
+.quick-consult-modal__heading button {
+  display: grid;
+  width: 2.65rem;
+  height: 2.65rem;
+  flex: 0 0 auto;
+  place-items: center;
+  border: 1px solid var(--commercial-border);
   border-radius: 999px;
-  background: var(--color-whatsapp);
-  color: var(--color-primary-foreground);
-  font-weight: 900;
+  background: var(--commercial-surface-panel);
+  color: var(--color-text);
+  cursor: pointer;
 }
 
-.mini-chatbot__cta svg {
-  width: 1.12rem;
-  height: 1.12rem;
+.quick-consult-modal__heading button span {
+  font-size: 1.75rem;
+  font-weight: 300;
+  line-height: 1;
 }
 
-.mini-chatbot__disclaimer {
-  margin-top: 0.8rem;
-  color: color-mix(in srgb, var(--color-muted) 86%, transparent);
-  font-size: 0.76rem;
+.quick-consult-modal .quick-consult {
+  padding: 1rem;
+  box-shadow: none;
+}
+
+@keyframes modalBackdropEnter {
+  from { opacity: 0; }
+}
+
+@keyframes modalPanelEnter {
+  from {
+    opacity: 0;
+    transform: translate3d(0, 22px, 0) scale(0.985);
+  }
 }
 
 @keyframes pulseLine {
@@ -3500,6 +3548,31 @@ body.menu-is-open .floating-actions {
 }
 
 @media (min-width: 760px) {
+  .page-progress {
+    min-height: 2.7rem;
+    padding-block: 0.48rem;
+  }
+
+  .page-progress__meta {
+    font-size: 0.7rem;
+  }
+
+  .page-progress__meta strong {
+    font-size: 0.74rem;
+  }
+
+  .quick-consult-launcher span {
+    display: inline;
+  }
+
+  .quick-consult-modal__backdrop {
+    align-items: center;
+  }
+
+  .quick-consult-modal {
+    padding: 1.25rem;
+  }
+
   .inclusions-tabs__summary {
     grid-template-columns: minmax(0, 1fr) auto;
   }
@@ -3581,13 +3654,6 @@ body.menu-is-open .floating-actions {
     align-items: center;
   }
 
-  .chatbot-launcher span {
-    display: inline;
-  }
-
-  .floating-actions__whatsapp {
-    display: inline-flex;
-  }
 }
 
 @media (min-width: 940px) {

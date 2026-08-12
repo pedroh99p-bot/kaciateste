@@ -279,6 +279,27 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
     }
   }
 
+  if (prospect.layout.pageProgress.enabled) {
+    const progressSections = prospect.layout.pageProgress.sections;
+    const duplicateProgressIds = duplicateIds(progressSections.map((section) => section.id));
+
+    if (!progressSections.length) {
+      errors.push(`${prospect.slug}: o progresso da página está ativo, mas não possui seções`);
+    }
+
+    if (duplicateProgressIds.length) {
+      errors.push(
+        `${prospect.slug}: IDs duplicados no progresso da página (${[...new Set(duplicateProgressIds)].join(", ")})`
+      );
+    }
+
+    for (const section of progressSections) {
+      if (!section.id.trim() || !section.label.trim()) {
+        errors.push(`${prospect.slug}: as etapas do progresso precisam de ID e rótulo`);
+      }
+    }
+  }
+
   validateAssetUrl(`${prospect.slug}: assets.logo`, prospect.assets.logo.src, errors);
   validateAssetUrl(`${prospect.slug}: assets.symbol`, prospect.assets.symbol.src, errors);
   validateAssetUrl(

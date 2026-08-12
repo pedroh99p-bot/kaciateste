@@ -53,8 +53,10 @@ export function PackageComparisonSection({ prospect }: PackageComparisonSectionP
               {features.map((feature) => (
                 <tr key={feature.id}>
                   <th scope="row">
-                    <Icon name={feature.icon} />
-                    <span>{feature.shortTitle}</span>
+                    <span className="comparison-table__feature">
+                      <Icon name={feature.icon} />
+                      <span>{feature.shortTitle}</span>
+                    </span>
                   </th>
                   {packages.map((item) => {
                     const included = item.featureIds.includes(feature.id);
