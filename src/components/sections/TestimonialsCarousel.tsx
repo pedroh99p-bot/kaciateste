@@ -25,7 +25,9 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
   return (
     <div
       className={`testimonials-carousel${shouldAutoplay ? " testimonials-carousel--auto" : ""}`}
+      aria-label="Avaliações de clientes no Google"
       aria-roledescription="carrossel"
+      role="region"
       style={{ "--testimonials-duration": `${Math.max(24, items.length * 7)}s` } as TestimonialsCarouselStyle}
     >
       <div className="testimonials-carousel__track">
@@ -39,6 +41,7 @@ export function TestimonialsCarousel({ testimonials }: TestimonialsCarouselProps
           </div>
         ))}
       </div>
+      <p className="testimonials-carousel__hint">Deslize para conferir as avaliações</p>
     </div>
   );
 }

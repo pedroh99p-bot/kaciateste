@@ -4,9 +4,11 @@ type WhatsAppContext = {
   customerName?: string;
   customerWhatsApp?: string;
   customerCity?: string;
+  customerState?: string;
   vehiclePlate?: string;
   urgency?: string;
   customerMessage?: string;
+  messageFormat?: "default" | "lead-intake";
 };
 
 export function normalizeWhatsAppNumber(phone: string): string {
@@ -14,6 +16,22 @@ export function normalizeWhatsAppNumber(phone: string): string {
 }
 
 export function composeWhatsAppMessage(defaultMessage: string, context: WhatsAppContext = {}) {
+  if (context.messageFormat === "lead-intake") {
+    const leadLines = [
+      "📋 *CONSULTA RÁPIDA PELO SITE*",
+      "",
+      context.customerName ? `👤 *Nome:* ${context.customerName}` : null,
+      context.customerState ? `📍 *Estado:* ${context.customerState}` : null,
+      context.selectedService ? `🎯 *Serviço:* ${context.selectedService}` : null,
+      context.customerMessage ? `📝 *Situação atual:* ${context.customerMessage}` : null,
+      "",
+      defaultMessage.trim(),
+      "Gostaria de receber uma orientação inicial."
+    ];
+
+    return leadLines.filter((line): line is string => Boolean(line)).join("\n");
+  }
+
   const lines = [defaultMessage.trim()];
 
   if (context.selectedService) {
@@ -34,6 +52,10 @@ export function composeWhatsAppMessage(defaultMessage: string, context: WhatsApp
 
   if (context.customerCity) {
     lines.push(`Cidade: ${context.customerCity}`);
+  }
+
+  if (context.customerState) {
+    lines.push(`Estado: ${context.customerState}`);
   }
 
   if (context.vehiclePlate) {

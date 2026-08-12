@@ -350,9 +350,23 @@ export const defaultProspectConfig: ProspectConfig = {
     logo: null
   },
   quickConsult: {
+    enabled: false,
+    eyebrow: "Consulta rápida",
+    headline: {
+      before: "Conte o seu caso e receba uma",
+      highlight: "orientação inicial",
+      after: "",
+      variant: "glow"
+    },
+    description: "Envie as informações principais do seu caso diretamente para o WhatsApp.",
     identifierField: "vehicle",
     identifierLabel: "Placa ou identificação",
-    identifierPlaceholder: "ABC1D23"
+    identifierPlaceholder: "ABC1D23",
+    stateLabel: "Estado",
+    statePlaceholder: "Selecione seu estado",
+    situationLabel: "Situação atual",
+    situationPlaceholder: "Conte resumidamente em que etapa está e o que precisa resolver.",
+    ctaLabel: "Enviar consulta pelo WhatsApp"
   },
   rollers: {
     authority: {

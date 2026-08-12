@@ -21,8 +21,8 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
 
   return (
     <section className="section specialist" data-section-tone="deep" id="especialista">
-      <Reveal className="specialist__card">
-        <div className="specialist__header">
+      <div className="specialist__card">
+        <Reveal className="specialist__header">
           <p className="eyebrow">
             <Icon className="eyebrow__icon" name="shield" />
             <span>{prospect.copy.specialistEyebrow}</span>
@@ -38,15 +38,22 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
               {prospect.specialist.city} — {prospect.specialist.state}
             </span>
           </div>
-          <p className="specialist__description">{prospect.specialist.description}</p>
-        </div>
-        <div className="specialist__visual">
+        </Reveal>
+        <Reveal className="specialist__visual" delay={80} preset="image-reveal">
           {portrait?.src ? (
-            <ImageWithFallback
-              className="specialist__portrait"
-              fallback={prospect.assets.symbol}
-              image={portrait}
-            />
+            <div className="specialist__device-frame">
+              <div className="specialist__device-bar" aria-hidden="true" />
+              <ImageWithFallback
+                className="specialist__portrait"
+                fallback={prospect.assets.symbol}
+                image={portrait}
+                sizes="(min-width: 940px) 38vw, 88vw"
+              />
+              <div className="specialist__photo-caption">
+                <strong>{prospect.specialist.name}</strong>
+                <span>{prospect.specialist.role}</span>
+              </div>
+            </div>
           ) : (
             <div
               aria-label={portrait?.alt ?? "Espaço reservado para foto do especialista"}
@@ -56,8 +63,9 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
               <span>{portrait?.alt ?? "SUA FOTO FICARIA AQUI"}</span>
             </div>
           )}
-        </div>
-        <div className="specialist__details">
+        </Reveal>
+        <Reveal className="specialist__details" delay={160}>
+          <p className="specialist__description">{prospect.specialist.description}</p>
           {prospect.specialist.credentials.length > 0 ? (
             <div className="specialist__credentials" aria-label="Credenciais profissionais">
               {prospect.specialist.credentials.map((credential) => (
@@ -113,8 +121,8 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
               </Button>
             )}
           </div>
-        </div>
-      </Reveal>
+        </Reveal>
+      </div>
     </section>
   );
 }

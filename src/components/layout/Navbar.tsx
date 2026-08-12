@@ -8,6 +8,7 @@ type NavbarProps = {
 
 export function Navbar({ prospect }: NavbarProps) {
   const navLinks: Array<{ href: string; label: string; icon: IconName }> = [
+    { href: "#consulta", label: "Consulta rápida", icon: "message" },
     { href: "#especialista", label: prospect.copy.specialistNavLabel, icon: "user" },
     { href: "#servicos", label: "Serviços", icon: "clipboard" },
     { href: "#pacotes", label: "Pacotes", icon: "star" },

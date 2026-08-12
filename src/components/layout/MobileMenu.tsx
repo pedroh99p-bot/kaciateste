@@ -45,9 +45,10 @@ export function MobileMenu({ prospect, links }: MobileMenuProps) {
         type="button"
       >
         <span className="menu-toggle__label">Menu</span>
-        <span />
-        <span />
-        <span />
+        <span className="menu-toggle__icon" aria-hidden="true">
+          <i />
+          <i />
+        </span>
       </button>
 
       <div aria-hidden={!isOpen} className={`mobile-menu${isOpen ? " is-open" : ""}`} id="mobile-menu">

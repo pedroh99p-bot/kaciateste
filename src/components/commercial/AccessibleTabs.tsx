@@ -92,7 +92,7 @@ export function AccessibleTabs({ defaultTabId, panels }: AccessibleTabsProps) {
         tabIndex={0}
       >
         <div className="inclusions-tabs__summary">
-          <div>
+          <div className="inclusions-tabs__selection">
             <span>Atendimento selecionado</span>
             <h3>{activePanel.label}</h3>
           </div>

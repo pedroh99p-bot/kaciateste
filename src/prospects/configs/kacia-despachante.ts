@@ -13,7 +13,7 @@ const logoAsset = {
 
 const specialistAsset = {
   src: `${assetRoot}/specialist.webp`,
-  alt: "Kacia, especialista em processos documentais relacionados a armas",
+  alt: "Kácia Miranda, especialista em processos documentais relacionados a armas",
   width: 1122,
   height: 1402,
   objectFit: "cover" as const,
@@ -50,12 +50,12 @@ export const kaciaDespachanteProspect = {
       "A orientação é documental. Requisitos, prazos e decisões dependem da análise e dos procedimentos dos órgãos responsáveis."
   },
   specialist: {
-    name: "Kacia Despachante",
+    name: "Kácia Miranda",
     role: "Especialista em processos documentais relacionados à Polícia Federal",
     city: "Atendimento nacional",
     state: "Brasil",
     description:
-      "Kacia orienta e organiza processos documentais relacionados a CR, CRAF, CAC, Guia de Tráfego, posse e demandas perante a Polícia Federal.",
+      "Kácia Miranda orienta e organiza processos documentais relacionados a CR, CRAF, CAC, Guia de Tráfego, posse e demandas perante a Polícia Federal.",
     signatureText: null,
     chips: [{ label: "Mais de 16 mil seguidores", icon: "instagram" }],
     credentials: [{ label: "Despachante", icon: "clipboard" }]
@@ -69,7 +69,7 @@ export const kaciaDespachanteProspect = {
     instagram: "@kaciadespachante",
     instagramUrl: "https://www.instagram.com/kaciadespachante/",
     defaultMessage:
-      "Olá, Kacia! Vim pelo site e gostaria de receber orientação sobre o meu caso."
+      "Olá, Kácia! Vim pelo site e gostaria de receber orientação sobre o meu caso."
   },
   location: {
     city: "Rio de Janeiro",
@@ -294,7 +294,7 @@ export const kaciaDespachanteProspect = {
         cardFeatureIds: ["emissao-cr", "laudos-certidoes", "acompanhamento"],
         ctaLabel: "QUERO ESTE",
         whatsappMessage:
-          "Olá, Kacia. Vi no site o pacote CR Atirador Desportivo e gostaria de entender como funciona.",
+          "Olá, Kácia. Vi no site o pacote CR Atirador Desportivo e gostaria de entender como funciona.",
         featured: false,
         enabled: true
       },
@@ -320,7 +320,7 @@ export const kaciaDespachanteProspect = {
         cardFeatureIds: ["emissao-cr", "autorizacao-aquisicao", "craf", "guia-trafego"],
         ctaLabel: "QUERO ESTE PACOTE",
         whatsappMessage:
-          "Olá, Kacia. Vi no site o pacote CR Completo + Arma e gostaria de entender como funciona.",
+          "Olá, Kácia. Vi no site o pacote CR Completo + Arma e gostaria de entender como funciona.",
         featured: true,
         enabled: true
       },
@@ -337,7 +337,7 @@ export const kaciaDespachanteProspect = {
         cardFeatureIds: ["renovacao-craf", "orientacao-documental", "multiplos-crafs", "acompanhamento"],
         ctaLabel: "QUERO RENOVAR",
         whatsappMessage:
-          "Olá, Kacia. Vi no site a opção de Renovação de CRAF e gostaria de entender como funciona.",
+          "Olá, Kácia. Vi no site a opção de Renovação de CRAF e gostaria de entender como funciona.",
         featured: false,
         enabled: true
       }
@@ -440,7 +440,7 @@ export const kaciaDespachanteProspect = {
       "Valores do briefing comercial. Confirme condições, taxas e documentos aplicáveis antes de contratar.",
     ctaLabel: "FALAR SOBRE MINHA RENOVAÇÃO",
     whatsappMessage:
-      "Olá, Kacia. Quero falar sobre a renovação do meu CRAF e entender qual opção se aplica ao meu caso."
+      "Olá, Kácia. Quero falar sobre a renovação do meu CRAF e entender qual opção se aplica ao meu caso."
   },
   reports: {
     enabled: true,
@@ -528,7 +528,7 @@ export const kaciaDespachanteProspect = {
         id: "como-comecar",
         question: "Como começo meu atendimento?",
         answer:
-          "Clique em Falar com Kacia, envie um resumo da sua necessidade e aguarde a orientação sobre o próximo passo.",
+          "Clique em Falar com Kácia, envie um resumo da sua necessidade e aguarde a orientação sobre o próximo passo.",
         enabled: true
       }
     ]
@@ -581,9 +581,43 @@ export const kaciaDespachanteProspect = {
     sourceLabel: "avaliação no Google"
   },
   testimonials: {
-    enabled: false,
-    autoplay: false,
-    items: []
+    enabled: true,
+    autoplay: true,
+    items: [
+      {
+        name: "Matheus",
+        text: "Ótima profissional, sem enrolação e um ótimo atendimento em todas as áreas!",
+        rating: 5,
+        service: "Avaliação de cliente",
+        source: "Google",
+        sourceUrl:
+          "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s100121115990411396861!2s0x9971f91e84c12d:0xa045940f6b60d789",
+        avatar: null,
+        isPlaceholder: false
+      },
+      {
+        name: "Adrielle Santana",
+        text: "Trabalho impecável, super recomendo. A melhor do Rio de Janeiro.",
+        rating: 5,
+        service: "Avaliação de cliente",
+        source: "Google",
+        sourceUrl:
+          "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s100767338557286887161!2s0x9971f91e84c12d:0xa045940f6b60d789",
+        avatar: null,
+        isPlaceholder: false
+      },
+      {
+        name: "Andre Machado",
+        text: "Profissionalismo e atenção aos detalhes foram a marca registrada do atendimento.",
+        rating: 5,
+        service: "Avaliação de cliente",
+        source: "Google",
+        sourceUrl:
+          "https://www.google.com/maps/reviews/data=!4m5!14m4!1m3!1m2!1s107683572511176657226!2s0x9971f91e84c12d:0xa045940f6b60d789",
+        avatar: null,
+        isPlaceholder: false
+      }
+    ]
   },
   whatsappGroup: {
     enabled: true,
@@ -608,9 +642,25 @@ export const kaciaDespachanteProspect = {
     logo: groupLogoAsset
   },
   quickConsult: {
+    enabled: true,
+    eyebrow: "Consulta rápida",
+    headline: {
+      before: "Conte o seu caso para receber uma",
+      highlight: "orientação inicial",
+      after: "",
+      variant: "glow"
+    },
+    description:
+      "Escolha o assunto, informe seu estado e resuma a situação atual. A mensagem chega organizada no WhatsApp da Kácia.",
     identifierField: "name",
     identifierLabel: "Nome",
-    identifierPlaceholder: "Seu nome"
+    identifierPlaceholder: "Como podemos te chamar?",
+    stateLabel: "Seu estado",
+    statePlaceholder: "Selecione a UF",
+    situationLabel: "Situação atual do processo",
+    situationPlaceholder:
+      "Ex.: ainda não iniciei, estou renovando, recebi uma exigência ou preciso organizar os documentos.",
+    ctaLabel: "Enviar consulta organizada"
   },
   rollers: {
     authority: {
@@ -702,8 +752,8 @@ export const kaciaDespachanteProspect = {
     ],
     heroPrimaryCta: "FALAR COM KACIA AGORA",
     heroSecondaryCta: "VER INVESTIMENTO",
-    primaryCta: "Falar com Kacia",
-    specialistNavLabel: "Quem é Kacia",
+    primaryCta: "Falar com Kácia",
+    specialistNavLabel: "Quem é Kácia",
     servicesHeadline: {
       before: "Assessoria para diferentes",
       highlight: "momentos do processo",
@@ -711,8 +761,8 @@ export const kaciaDespachanteProspect = {
       variant: "glow"
     },
     servicesSubtitle:
-      "Deslize, encontre o assunto mais próximo do seu caso e fale com Kacia.",
-    specialistEyebrow: "Quem é Kacia",
+      "Deslize, encontre o assunto mais próximo do seu caso e fale com Kácia.",
+    specialistEyebrow: "Quem é Kácia",
     specialistHeadline: {
       before: "Mais que uma despachante.",
       highlight: "Experiência de quem conhece o processo.",
@@ -735,8 +785,8 @@ export const kaciaDespachanteProspect = {
     },
     testimonialsEyebrow: "Avaliações",
     testimonialsHeadline: {
-      before: "Experiência compartilhada por quem já buscou",
-      highlight: "orientação",
+      before: "Atendimento reconhecido por quem já contou com a",
+      highlight: "Kácia",
       after: "",
       variant: "glow"
     },
@@ -747,7 +797,7 @@ export const kaciaDespachanteProspect = {
       after: "",
       variant: "glow"
     },
-    finalEyebrow: "Fale com Kacia",
+    finalEyebrow: "Fale com Kácia",
     finalHeadline: {
       before: "Comece seu atendimento com",
       highlight: "orientação",
@@ -841,11 +891,11 @@ export const kaciaDespachanteProspect = {
       },
       {
         id: "falar-kacia",
-        label: "Quero falar com a Kacia",
+        label: "Quero falar com a Kácia",
         icon: "whatsapp",
         response: "Perfeito. Continue pelo WhatsApp e envie um resumo da sua situação.",
         relatedServiceId: null,
-        whatsappMessage: "Quero falar com a Kacia e solicitar uma orientação inicial."
+        whatsappMessage: "Quero falar com a Kácia e solicitar uma orientação inicial."
       }
     ]
   },

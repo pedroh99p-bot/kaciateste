@@ -19,6 +19,7 @@ import { LocationSection } from "@/components/sections/LocationSection";
 import { PackagesSection } from "@/components/sections/PackagesSection";
 import { PackageComparisonSection } from "@/components/sections/PackageComparisonSection";
 import { ProcessSection } from "@/components/sections/ProcessSection";
+import { QuickConsultSection } from "@/components/sections/QuickConsultSection";
 import { ReportsSection } from "@/components/sections/ReportsSection";
 import { ServicesSection } from "@/components/sections/ServicesSection";
 import { SpecialistSection } from "@/components/sections/SpecialistSection";
@@ -71,6 +72,7 @@ export default async function ProspectPage({ params }: PageProps) {
         <HeroSection prospect={prospect} />
         <SectionDivider variant="curve" />
         <AuthorityRoller roller={prospect.rollers.transition} />
+        <QuickConsultSection prospect={prospect} />
         <SpecialistSection prospect={prospect} />
         <SectionDivider variant="diagonal" />
         <ServicesSection prospect={prospect} />

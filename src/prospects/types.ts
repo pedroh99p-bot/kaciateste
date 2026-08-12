@@ -349,9 +349,18 @@ export type WhatsAppGroupConfig = {
 };
 
 export type QuickConsultConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  description: string;
   identifierField: "vehicle" | "name";
   identifierLabel: string;
   identifierPlaceholder: string;
+  stateLabel: string;
+  statePlaceholder: string;
+  situationLabel: string;
+  situationPlaceholder: string;
+  ctaLabel: string;
 };
 
 export type RollerConfig = {

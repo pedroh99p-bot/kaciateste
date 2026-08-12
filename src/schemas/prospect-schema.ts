@@ -240,6 +240,10 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
           `${prospect.slug}: depoimento ${index + 1} precisa de origem quando não for placeholder`
         );
       }
+
+      if (testimonial.sourceUrl && !isHttpUrl(testimonial.sourceUrl)) {
+        errors.push(`${prospect.slug}: depoimento ${index + 1} possui URL de origem inválida`);
+      }
     }
   }
 
@@ -259,11 +263,20 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
     );
   }
 
-  if (
-    !prospect.quickConsult.identifierLabel.trim() ||
-    !prospect.quickConsult.identifierPlaceholder.trim()
-  ) {
-    errors.push(`${prospect.slug}: os textos do campo de identificação da consulta são obrigatórios`);
+  if (prospect.quickConsult.enabled) {
+    if (
+      !prospect.quickConsult.eyebrow.trim() ||
+      !prospect.quickConsult.description.trim() ||
+      !prospect.quickConsult.identifierLabel.trim() ||
+      !prospect.quickConsult.identifierPlaceholder.trim() ||
+      !prospect.quickConsult.stateLabel.trim() ||
+      !prospect.quickConsult.statePlaceholder.trim() ||
+      !prospect.quickConsult.situationLabel.trim() ||
+      !prospect.quickConsult.situationPlaceholder.trim() ||
+      !prospect.quickConsult.ctaLabel.trim()
+    ) {
+      errors.push(`${prospect.slug}: a consulta rápida está habilitada, mas possui textos obrigatórios vazios`);
+    }
   }
 
   validateAssetUrl(`${prospect.slug}: assets.logo`, prospect.assets.logo.src, errors);

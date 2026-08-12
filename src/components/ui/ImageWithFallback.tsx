@@ -25,6 +25,7 @@ export function ImageWithFallback({
       fetchPriority={loading === "eager" ? "high" : "auto"}
       height={finalImage.height}
       loading={loading}
+      draggable={false}
       sizes={sizes}
       src={finalImage.src ?? fallback.src ?? ""}
       style={{
