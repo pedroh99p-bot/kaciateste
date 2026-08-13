@@ -92,7 +92,7 @@ export const kaciaDespachanteProspect = {
     heroSpecialist: specialistAsset,
     specialistPortrait: specialistAsset,
     specialistSignature: null,
-    socialPreview: `${assetRoot}/social-preview.webp`,
+    socialPreview: `${assetRoot}/whatsapp-preview.webp`,
     backgroundTexture: `${assetRoot}/hero-background.webp`,
     testimonialAvatars: [googleIconAsset],
     mapFallback: {
@@ -923,7 +923,7 @@ export const kaciaDespachanteProspect = {
     title: "Kacia Despachante de Armas | CR, CAC, CRAF e Renovação",
     description:
       "Assessoria documental para CR, CAC, CRAF, Guia de Tráfego, renovação, posse e processos na Polícia Federal, com atendimento nacional.",
-    canonical: null,
+    canonical: "https://kaciateste.vercel.app/kacia-despachante",
     allowIndexing: false
   },
   tracking: {
