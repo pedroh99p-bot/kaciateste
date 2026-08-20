@@ -251,15 +251,15 @@ export const kaciaDespachanteProspect = {
     {
       id: "gt-treino-estande",
       title: "Deslocamento para treinamento ou estande de tiro",
-      shortTitle: "Treinamento ou estande de tiro",
+      shortTitle: "Deslocamento para treinamento ou estande de tiro",
       description: "Guia destinada aos deslocamentos autorizados até o local de treinamento ou estande de tiro.",
       icon: "route"
     },
     {
       id: "gt-validade-cr",
-      title: "Validade de até 6 meses, condicionada à validade do CR",
-      shortTitle: "Até 6 meses, conforme a validade do CR",
-      description: "O prazo aplicável fica condicionado à validade do Certificado de Registro.",
+      title: "Validade conforme a finalidade e as condições da GT",
+      shortTitle: "Validade conforme a finalidade e as condições da GT",
+      description: "A validade deve ser observada conforme a finalidade e as condições indicadas na Guia de Tráfego.",
       icon: "calendar"
     },
     {
