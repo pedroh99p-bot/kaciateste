@@ -22,7 +22,7 @@ body.menu-is-open {
   overflow: hidden;
 }
 
-body.preloader-active {
+body.preloader-active:not(.preloader-leaving) {
   overflow: hidden;
 }
 
