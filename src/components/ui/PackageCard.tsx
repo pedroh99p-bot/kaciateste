@@ -15,7 +15,7 @@ export function PackageCard({ item, href, features }: PackageCardProps) {
       <div className="package-card__header">
         {item.eyebrow ? <span className="package-card__eyebrow">{item.eyebrow}</span> : null}
         <h3>{item.name}</h3>
-        <strong className="package-card__price">{item.price}</strong>
+        {item.price ? <strong className="package-card__price">{item.price}</strong> : null}
         {item.installments ? <p className="package-card__installments">ou {item.installments}</p> : null}
         <p className="package-card__description">{item.description}</p>
       </div>

@@ -199,7 +199,7 @@ export type PackageConfig = {
   shortName: string;
   eyebrow: string | null;
   badge: string | null;
-  price: string;
+  price: string | null;
   installments: string | null;
   description: string;
   featureIds: string[];

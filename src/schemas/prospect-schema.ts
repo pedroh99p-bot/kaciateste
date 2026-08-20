@@ -88,7 +88,7 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
       if (
         !item.name.trim() ||
         !item.shortName.trim() ||
-        !item.price.trim() ||
+        (item.price !== null && !item.price.trim()) ||
         !item.description.trim() ||
         !item.featureIds.length ||
         !item.cardFeatureIds.length ||

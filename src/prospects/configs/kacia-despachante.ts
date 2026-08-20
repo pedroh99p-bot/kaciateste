@@ -242,6 +242,27 @@ export const kaciaDespachanteProspect = {
       icon: "route"
     },
     {
+      id: "gt-transporte-desmuniciada",
+      title: "Autorização para transportar armas de fogo desmuniciadas",
+      shortTitle: "Transporte de arma desmuniciada",
+      description: "Orientação documental para solicitar a autorização de transporte aplicável ao CAC.",
+      icon: "shield"
+    },
+    {
+      id: "gt-treino-estande",
+      title: "Deslocamento para treinamento ou estande de tiro",
+      shortTitle: "Treinamento ou estande de tiro",
+      description: "Guia destinada aos deslocamentos autorizados até o local de treinamento ou estande de tiro.",
+      icon: "route"
+    },
+    {
+      id: "gt-validade-cr",
+      title: "Validade de até 6 meses, condicionada à validade do CR",
+      shortTitle: "Até 6 meses, conforme a validade do CR",
+      description: "O prazo aplicável fica condicionado à validade do Certificado de Registro.",
+      icon: "calendar"
+    },
+    {
       id: "orientacao-complementar",
       title: "Orientação complementar",
       shortTitle: "Orientação complementar",
@@ -334,19 +355,19 @@ export const kaciaDespachanteProspect = {
         enabled: true
       },
       {
-        id: "renovacao-craf",
-        name: "Renovação de CRAF",
-        shortName: "Renovação de CRAF",
-        eyebrow: "A partir de",
+        id: "guia-trafego-gt",
+        name: "Guia de Tráfego (GT)",
+        shortName: "Guia de Tráfego",
+        eyebrow: null,
         badge: null,
-        price: "R$ 800,00",
+        price: null,
         installments: null,
-        description: "Assessoria para organizar o processo documental de renovação do CRAF.",
-        featureIds: ["renovacao-craf", "orientacao-documental", "multiplos-crafs", "acompanhamento"],
-        cardFeatureIds: ["renovacao-craf", "orientacao-documental", "multiplos-crafs", "acompanhamento"],
-        ctaLabel: "QUERO RENOVAR",
+        description: "Assessoria documental para solicitar a autorização de transporte no contexto CAC.",
+        featureIds: ["gt-transporte-desmuniciada", "gt-treino-estande", "gt-validade-cr"],
+        cardFeatureIds: ["gt-transporte-desmuniciada", "gt-treino-estande", "gt-validade-cr"],
+        ctaLabel: "FALAR SOBRE A GT",
         whatsappMessage:
-          "Olá, Kácia. Vi no site a opção de Renovação de CRAF e gostaria de entender como funciona.",
+          "Olá, Kácia. Vi no site a opção de Guia de Tráfego (GT) e gostaria de receber orientação sobre a solicitação.",
         featured: false,
         enabled: true
       }
@@ -413,8 +434,8 @@ export const kaciaDespachanteProspect = {
         label: "Renovação",
         shortLabel: "Renovação",
         description: "Assessoria para organizar o processo documental de renovação do CRAF.",
-        packageId: "renovacao-craf",
-        featureIds: []
+        packageId: null,
+        featureIds: ["renovacao-craf", "orientacao-documental", "multiplos-crafs", "acompanhamento"]
       }
     ]
   },
