@@ -247,6 +247,33 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
     }
   }
 
+  if (prospect.digitalProduct.enabled) {
+    if (
+      !prospect.digitalProduct.eyebrow.trim() ||
+      !prospect.digitalProduct.subtitle.trim() ||
+      !prospect.digitalProduct.description.trim() ||
+      !prospect.digitalProduct.benefits.length ||
+      !prospect.digitalProduct.ctaLabel.trim() ||
+      !prospect.digitalProduct.checkoutUrl ||
+      !prospect.digitalProduct.cover?.src
+    ) {
+      errors.push(`${prospect.slug}: o produto digital está habilitado, mas possui campos obrigatórios vazios`);
+    }
+
+    if (
+      prospect.digitalProduct.checkoutUrl &&
+      !isHttpUrl(prospect.digitalProduct.checkoutUrl)
+    ) {
+      errors.push(`${prospect.slug}: digitalProduct.checkoutUrl possui URL inválida`);
+    }
+
+    validateAssetUrl(
+      `${prospect.slug}: digitalProduct.cover`,
+      prospect.digitalProduct.cover?.src ?? null,
+      errors
+    );
+  }
+
   if (prospect.whatsappGroup.enabled) {
     if (!prospect.whatsappGroup.name.trim()) {
       errors.push(`${prospect.slug}: whatsappGroup.name é obrigatório quando a seção está ativa`);

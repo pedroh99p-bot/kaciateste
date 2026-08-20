@@ -38,6 +38,15 @@ const googleIconAsset = {
   objectPosition: "center"
 };
 
+const manualCacCoverAsset = {
+  src: `${assetRoot}/manual-cac-2026.png`,
+  alt: "Capa do Manual do CAC 2026 para colecionadores, atiradores e caçadores",
+  width: 319,
+  height: 465,
+  objectFit: "contain" as const,
+  objectPosition: "center"
+};
+
 export const kaciaDespachanteProspect = {
   slug: "kacia-despachante",
   status: "active",
@@ -619,6 +628,33 @@ export const kaciaDespachanteProspect = {
       }
     ]
   },
+  digitalProduct: {
+    enabled: true,
+    eyebrow: "Conteúdo digital",
+    headline: {
+      before: "Manual do",
+      highlight: "CAC 2026",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Guia digital para colecionadores, atiradores e caçadores consultarem no próprio ritmo.",
+    description:
+      "Um material organizado sobre legislação, documentação, registros, transporte e segurança no universo CAC.",
+    cover: manualCacCoverAsset,
+    benefits: [
+      { label: "Edição 2026 organizada para consulta", icon: "document" },
+      { label: "Principais temas reunidos em um só material", icon: "clipboard" },
+      { label: "Leitura pelo celular, tablet ou computador", icon: "phone" },
+      { label: "Compra e acesso pela plataforma Hotmart", icon: "lock" }
+    ],
+    pricePrefix: "por apenas",
+    price: "R$ 29,90",
+    paymentNote: "Parcele em até 4 vezes no checkout.",
+    ctaLabel: "COMPRAR O MANUAL",
+    checkoutUrl: "https://pay.hotmart.com/F105217496C?off=wyip12rm&hotfeature=51",
+    disclaimer:
+      "Material informativo. Regras e procedimentos podem mudar; consulte os órgãos responsáveis e busque orientação profissional para o seu caso."
+  },
   whatsappGroup: {
     enabled: true,
     name: "Kacia despachante/ decreto 11.615 🇧🇷",
@@ -836,6 +872,7 @@ export const kaciaDespachanteProspect = {
         { id: "laudos", label: "Etapas" },
         { id: "como-funciona", label: "Processo" },
         { id: "depoimentos", label: "Avaliações" },
+        { id: "manual-cac", label: "Manual" },
         { id: "faq", label: "Dúvidas" },
         { id: "grupo-whatsapp", label: "Grupo" },
         { id: "localizacao", label: "Escritório" },

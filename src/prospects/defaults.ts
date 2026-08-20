@@ -328,6 +328,26 @@ export const defaultProspectConfig: ProspectConfig = {
       }
     ]
   },
+  digitalProduct: {
+    enabled: false,
+    eyebrow: "Conteúdo digital",
+    headline: {
+      before: "Material para consultar com mais",
+      highlight: "clareza",
+      after: "",
+      variant: "glow"
+    },
+    subtitle: "Uma opção complementar para quem prefere estudar o assunto no próprio ritmo.",
+    description: "Consulte os detalhes do conteúdo antes de seguir para o checkout.",
+    cover: null,
+    benefits: [],
+    pricePrefix: null,
+    price: null,
+    paymentNote: null,
+    ctaLabel: "Conhecer o material",
+    checkoutUrl: null,
+    disclaimer: null
+  },
   whatsappGroup: {
     enabled: false,
     name: "Grupo de informações",

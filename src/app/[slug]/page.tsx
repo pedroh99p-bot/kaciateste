@@ -12,6 +12,7 @@ import { PageProgress } from "@/components/layout/PageProgress";
 import { SectionDivider } from "@/components/layout/SectionDivider";
 import { AuthorityRoller } from "@/components/rollers/AuthorityRoller";
 import { CrafRenewalSection } from "@/components/sections/CrafRenewalSection";
+import { DigitalProductSection } from "@/components/sections/DigitalProductSection";
 import { FaqSection } from "@/components/sections/FaqSection";
 import { FinalCtaSection } from "@/components/sections/FinalCtaSection";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -85,6 +86,7 @@ export default async function ProspectPage({ params }: PageProps) {
         <ReportsSection prospect={prospect} />
         <ProcessSection prospect={prospect} />
         <TestimonialsSection prospect={prospect} />
+        <DigitalProductSection prospect={prospect} />
         <FaqSection prospect={prospect} />
         <WhatsAppGroupSection prospect={prospect} />
         <SectionDivider variant="glow-line" />

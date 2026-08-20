@@ -336,6 +336,22 @@ export type TestimonialsConfig = {
   items: TestimonialConfig[];
 };
 
+export type DigitalProductConfig = {
+  enabled: boolean;
+  eyebrow: string;
+  headline: HighlightCopy;
+  subtitle: string;
+  description: string;
+  cover: AssetImage | null;
+  benefits: Array<{ label: string; icon: IconName }>;
+  pricePrefix: string | null;
+  price: string | null;
+  paymentNote: string | null;
+  ctaLabel: string;
+  checkoutUrl: string | null;
+  disclaimer: string | null;
+};
+
 export type WhatsAppGroupConfig = {
   enabled: boolean;
   name: string;
@@ -482,6 +498,7 @@ export type ProspectConfig = {
   process: ProcessStepConfig[];
   proof: ProofConfig;
   testimonials: TestimonialsConfig;
+  digitalProduct: DigitalProductConfig;
   whatsappGroup: WhatsAppGroupConfig;
   quickConsult: QuickConsultConfig;
   rollers: {
