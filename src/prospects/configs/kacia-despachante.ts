@@ -13,7 +13,7 @@ const logoAsset = {
 
 const specialistAsset = {
   src: `${assetRoot}/specialist.webp`,
-  alt: "Kácia Miranda, especialista em processos documentais relacionados a armas",
+  alt: "Kacia Miranda, especialista em processos documentais relacionados a armas",
   width: 1122,
   height: 1402,
   objectFit: "cover" as const,
@@ -59,7 +59,7 @@ export const kaciaDespachanteProspect = {
       "A orientação é documental. Requisitos, prazos e decisões dependem da análise e dos procedimentos dos órgãos responsáveis."
   },
   specialist: {
-    name: "Kácia Miranda",
+    name: "Kacia Miranda",
     role: "Especialista em processos documentais relacionados à Polícia Federal",
     city: "Atendimento nacional",
     state: "Brasil",
@@ -78,7 +78,7 @@ export const kaciaDespachanteProspect = {
     instagram: "@kaciadespachante",
     instagramUrl: "https://www.instagram.com/kaciadespachante/",
     defaultMessage:
-      "Olá, Kácia! Vim pelo site e gostaria de receber orientação sobre o meu caso."
+      "Olá, Kacia! Vim pelo site e gostaria de receber orientação sobre o meu caso."
   },
   location: {
     city: "Rio de Janeiro",
@@ -324,7 +324,7 @@ export const kaciaDespachanteProspect = {
         cardFeatureIds: ["emissao-cr", "laudos-certidoes", "acompanhamento"],
         ctaLabel: "QUERO ESTE",
         whatsappMessage:
-          "Olá, Kácia. Vi no site o pacote CR Atirador Desportivo e gostaria de entender como funciona.",
+          "Olá, Kacia. Vi no site o pacote CR Atirador Desportivo e gostaria de entender como funciona.",
         featured: false,
         enabled: true
       },
@@ -350,7 +350,7 @@ export const kaciaDespachanteProspect = {
         cardFeatureIds: ["emissao-cr", "autorizacao-aquisicao", "craf", "guia-trafego"],
         ctaLabel: "QUERO ESTE PACOTE",
         whatsappMessage:
-          "Olá, Kácia. Vi no site o pacote CR Completo + Arma e gostaria de entender como funciona.",
+          "Olá, Kacia. Vi no site o pacote CR Completo + Arma e gostaria de entender como funciona.",
         featured: true,
         enabled: true
       },
@@ -367,7 +367,7 @@ export const kaciaDespachanteProspect = {
         cardFeatureIds: ["gt-transporte-desmuniciada", "gt-treino-estande", "gt-validade-cr"],
         ctaLabel: "FALAR SOBRE A GT",
         whatsappMessage:
-          "Olá, Kácia. Vi no site a opção de Guia de Tráfego (GT) e gostaria de receber orientação sobre a solicitação.",
+          "Olá, Kacia. Vi no site a opção de Guia de Tráfego (GT) e gostaria de receber orientação sobre a solicitação.",
         featured: false,
         enabled: true
       }
@@ -441,36 +441,29 @@ export const kaciaDespachanteProspect = {
   },
   renewal: {
     enabled: true,
-    eyebrow: "Atendimento específico",
+    eyebrow: "Renovação documental",
     headline: {
       before: "Renovação de",
       highlight: "CRAF",
       after: "",
       variant: "glow"
     },
-    subtitle: "Organize sua documentação e inicie o processo com antecedência.",
+    subtitle: "Entenda o que precisa ser organizado para renovar seu documento.",
     description:
-      "As opções abaixo ajudam a identificar o investimento apresentado para diferentes quantidades de CRAFs.",
-    prices: [
-      { quantity: 1, label: "1 CRAF", price: "R$ 800" },
-      { quantity: 2, label: "2 CRAFs", price: "R$ 1.100" },
-      { quantity: 3, label: "3 CRAFs", price: "R$ 1.400" },
-      { quantity: 4, label: "4 CRAFs", price: "R$ 1.600" },
-      { quantity: 5, label: "5 CRAFs", price: "R$ 1.800" },
-      { quantity: 6, label: "6 CRAFs", price: "R$ 2.000" }
-    ],
-    initialQuantity: 1,
+      "Cada renovação deve considerar a situação do documento, os dados do titular e os requisitos aplicáveis ao processo.",
+    prices: [],
+    initialQuantity: null,
     benefits: [
-      { label: "Atendimento pelo WhatsApp", icon: "whatsapp" },
-      { label: "Organização documental", icon: "clipboard" },
-      { label: "Suporte durante o processo", icon: "message" }
+      { label: "Análise inicial da situação documental", icon: "document" },
+      { label: "Orientação sobre documentos e etapas", icon: "clipboard" },
+      { label: "Acompanhamento durante o processo", icon: "message" }
     ],
-    additionalLabel: "+ R$ 200 por arma adicional",
+    additionalLabel: null,
     disclaimer:
-      "Valores do briefing comercial. Confirme condições, taxas e documentos aplicáveis antes de contratar.",
-    ctaLabel: "FALAR SOBRE MINHA RENOVAÇÃO",
+      "Prazos, exigências e taxas oficiais dependem da análise do caso e dos órgãos responsáveis.",
+    ctaLabel: "ANALISAR MINHA RENOVAÇÃO",
     whatsappMessage:
-      "Olá, Kácia. Quero falar sobre a renovação do meu CRAF e entender qual opção se aplica ao meu caso."
+      "Olá, Kacia. Quero falar sobre a renovação do meu CRAF e entender quais documentos e etapas se aplicam ao meu caso."
   },
   reports: {
     enabled: true,
@@ -558,7 +551,7 @@ export const kaciaDespachanteProspect = {
         id: "como-comecar",
         question: "Como começo meu atendimento?",
         answer:
-          "Clique em Falar com Kácia, envie um resumo da sua necessidade e aguarde a orientação sobre o próximo passo.",
+          "Clique em Falar com Kacia, envie um resumo da sua necessidade e aguarde a orientação sobre o próximo passo.",
         enabled: true
       }
     ]
@@ -708,7 +701,7 @@ export const kaciaDespachanteProspect = {
       variant: "glow"
     },
     description:
-      "Escolha o assunto, informe seu estado e resuma a situação atual. A mensagem chega organizada no WhatsApp da Kácia.",
+      "Escolha o assunto, informe seu estado e resuma a situação atual. A mensagem chega organizada no WhatsApp da Kacia.",
     identifierField: "name",
     identifierLabel: "Nome",
     identifierPlaceholder: "Como podemos te chamar?",
@@ -809,8 +802,8 @@ export const kaciaDespachanteProspect = {
     ],
     heroPrimaryCta: "FALAR COM KACIA AGORA",
     heroSecondaryCta: "VER INVESTIMENTO",
-    primaryCta: "Falar com Kácia",
-    specialistNavLabel: "Quem é Kácia",
+    primaryCta: "Falar com Kacia",
+    specialistNavLabel: "Quem é Kacia",
     servicesHeadline: {
       before: "Assessoria para diferentes",
       highlight: "momentos do processo",
@@ -818,8 +811,8 @@ export const kaciaDespachanteProspect = {
       variant: "glow"
     },
     servicesSubtitle:
-      "Deslize, encontre o assunto mais próximo do seu caso e fale com Kácia.",
-    specialistEyebrow: "Quem é Kácia",
+      "Deslize, encontre o assunto mais próximo do seu caso e fale com Kacia.",
+    specialistEyebrow: "Quem é Kacia",
     specialistHeadline: {
       before: "Mais que uma despachante.",
       highlight: "Experiência de quem conhece o processo.",
@@ -843,7 +836,7 @@ export const kaciaDespachanteProspect = {
     testimonialsEyebrow: "Avaliações",
     testimonialsHeadline: {
       before: "Atendimento reconhecido por quem já contou com a",
-      highlight: "Kácia",
+      highlight: "Kacia",
       after: "",
       variant: "glow"
     },
@@ -854,7 +847,7 @@ export const kaciaDespachanteProspect = {
       after: "",
       variant: "glow"
     },
-    finalEyebrow: "Fale com Kácia",
+    finalEyebrow: "Fale com Kacia",
     finalHeadline: {
       before: "Comece seu atendimento com",
       highlight: "orientação",
@@ -969,11 +962,11 @@ export const kaciaDespachanteProspect = {
       },
       {
         id: "falar-kacia",
-        label: "Quero falar com a Kácia",
+        label: "Quero falar com a Kacia",
         icon: "whatsapp",
         response: "Perfeito. Continue pelo WhatsApp e envie um resumo da sua situação.",
         relatedServiceId: null,
-        whatsappMessage: "Quero falar com a Kácia e solicitar uma orientação inicial."
+        whatsappMessage: "Quero falar com a Kacia e solicitar uma orientação inicial."
       }
     ]
   },

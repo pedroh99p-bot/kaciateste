@@ -168,10 +168,6 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
   }
 
   if (prospect.renewal.enabled) {
-    if (!prospect.renewal.prices.length) {
-      errors.push(`${prospect.slug}: renewal.enabled está true, mas não há preços cadastrados`);
-    }
-
     if (!prospect.renewal.ctaLabel.trim() || !prospect.renewal.whatsappMessage.trim()) {
       errors.push(`${prospect.slug}: renovação precisa de CTA e mensagem de WhatsApp`);
     }

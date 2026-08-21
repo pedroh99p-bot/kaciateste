@@ -41,7 +41,7 @@ export function FinalCtaSection({ prospect }: FinalCtaSectionProps) {
               {prospect.copy.primaryCta}
             </Button>
             <Button href="#pacotes" icon="arrow-right" variant="secondary">
-              Ver investimento
+              {prospect.copy.heroSecondaryCta}
             </Button>
           </div>
         </div>
