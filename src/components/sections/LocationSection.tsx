@@ -78,6 +78,18 @@ export function LocationSection({ prospect }: LocationSectionProps) {
             <Icon name="instagram" />
             <h3>Instagram</h3>
             <p>{prospect.contact.instagram ?? "Informe o Instagram"}</p>
+            {prospect.contact.instagramUrl ? (
+              <a
+                aria-label={`Abrir o Instagram de ${prospect.business.name}`}
+                className="location__card-cta"
+                href={prospect.contact.instagramUrl}
+                rel="noreferrer"
+                target="_blank"
+              >
+                <span>Ver perfil</span>
+                <Icon name="chevron-right" />
+              </a>
+            ) : null}
           </article>
         </Reveal>
         <Reveal delay={80}>

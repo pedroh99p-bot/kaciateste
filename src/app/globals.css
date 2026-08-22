@@ -3401,6 +3401,40 @@ img {
   color: var(--color-primary);
 }
 
+.location__card-cta {
+  display: inline-flex;
+  gap: 0.45rem;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 2.65rem;
+  margin-top: auto;
+  padding: 0.65rem 0.75rem;
+  border: 1px solid var(--color-border);
+  border-radius: 999px;
+  color: var(--color-primary);
+  font-family: var(--font-label, var(--font-body));
+  font-size: 0.78rem;
+  font-weight: 800;
+  text-decoration: none;
+  transition:
+    border-color 180ms ease,
+    background-color 180ms ease,
+    transform 180ms ease;
+}
+
+.location__card-cta:hover,
+.location__card-cta:focus-visible {
+  border-color: var(--color-primary);
+  background: color-mix(in srgb, var(--color-primary) 12%, transparent);
+  transform: translateY(-1px);
+}
+
+.location__card-cta svg {
+  width: 1rem;
+  height: 1rem;
+  margin: 0;
+}
+
 .final-cta__card {
   display: grid;
   gap: 1.5rem;
