@@ -917,6 +917,31 @@ select {
   color: var(--color-primary);
 }
 
+.chip__image {
+  flex: 0 0 auto;
+  width: 1.2rem;
+  height: 1.2rem;
+  object-fit: contain;
+}
+
+.chip__rating {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0.28rem 0.42rem;
+  align-items: center;
+  min-width: 0;
+}
+
+.rating-stars {
+  color: #f5b900;
+  font-family: Arial, sans-serif;
+  font-size: 0.72rem;
+  font-weight: 900;
+  letter-spacing: 0.035em;
+  line-height: 1;
+  white-space: nowrap;
+}
+
 .hero__stats,
 .specialist__stats {
   display: grid;
@@ -941,13 +966,30 @@ select {
   color: var(--color-accent);
 }
 
+.stat-card__brand {
+  width: 1.75rem;
+  height: 1.75rem;
+  object-fit: contain;
+}
+
 .stat-card strong {
   font-size: clamp(1.9rem, 8vw, 3rem);
   line-height: 1;
 }
 
-.stat-card span {
+.stat-card__meta {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.stat-card__label {
   color: var(--color-muted);
+}
+
+.stat-card__stars {
+  color: #f5b900;
+  font-size: 0.62rem;
+  letter-spacing: 0;
 }
 
 .hero__actions,
@@ -1440,7 +1482,8 @@ select {
   padding: 0.8rem;
 }
 
-.specialist__stats .stat-card__icon {
+.specialist__stats .stat-card__icon,
+.specialist__stats .stat-card__brand {
   grid-row: 1 / 3;
 }
 
@@ -1449,9 +1492,20 @@ select {
   font-size: 1.75rem;
 }
 
+.specialist__stats .stat-card__meta {
+  grid-column: 2;
+  grid-row: 2;
+  align-self: start;
+}
+
 .specialist__stats .stat-card span {
   align-self: start;
   font-size: 0.78rem;
+}
+
+.specialist__stats .stat-card .stat-card__stars {
+  color: #f5b900;
+  font-size: 0.62rem;
 }
 
 .specialist__actions {

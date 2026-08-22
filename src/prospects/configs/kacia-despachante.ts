@@ -601,7 +601,9 @@ export const kaciaDespachanteProspect = {
     reviewCount: 93,
     clientsServed: null,
     yearsExperience: null,
-    sourceLabel: "avaliação no Google"
+    sourceLabel: "no Google",
+    sourceLogo: googleIconAsset,
+    starCount: 5
   },
   testimonials: {
     enabled: true,
@@ -796,6 +798,7 @@ export const kaciaDespachanteProspect = {
     heroSubtitle:
       "Assessoria especializada para conduzir seu processo documental junto à Polícia Federal com orientação em cada etapa.",
     heroProofs: [
+      { label: "5,0 no Google", icon: "star", image: googleIconAsset, stars: 5 },
       { label: "Atendimento nacional", icon: "map" },
       { label: "Especialista em processos na PF", icon: "shield" },
       { label: "Atendimento pelo WhatsApp", icon: "whatsapp" }

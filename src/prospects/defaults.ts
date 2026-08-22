@@ -288,7 +288,9 @@ export const defaultProspectConfig: ProspectConfig = {
     reviewCount: null,
     clientsServed: null,
     yearsExperience: null,
-    sourceLabel: null
+    sourceLabel: null,
+    sourceLogo: null,
+    starCount: null
   },
   testimonials: {
     enabled: true,

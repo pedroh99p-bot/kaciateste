@@ -317,6 +317,8 @@ export type ProofConfig = {
   clientsServed: number | null;
   yearsExperience: number | null;
   sourceLabel: string | null;
+  sourceLogo: AssetImage | null;
+  starCount: number | null;
 };
 
 export type TestimonialConfig = {
@@ -391,7 +393,12 @@ export type CopyConfig = {
   heroEyebrow: string;
   heroHeadline: HighlightCopy;
   heroSubtitle: string;
-  heroProofs: Array<{ label: string; icon: IconName }>;
+  heroProofs: Array<{
+    label: string;
+    icon: IconName;
+    image?: AssetImage | null;
+    stars?: number | null;
+  }>;
   heroPrimaryCta: string;
   heroSecondaryCta: string;
   primaryCta: string;

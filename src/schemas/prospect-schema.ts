@@ -341,6 +341,18 @@ export function validateResolvedProspect(prospect: ResolvedProspect): string[] {
     prospect.assets.backgroundTexture,
     errors
   );
+  validateAssetUrl(
+    `${prospect.slug}: proof.sourceLogo`,
+    prospect.proof.sourceLogo?.src ?? null,
+    errors
+  );
+
+  if (
+    prospect.proof.starCount !== null &&
+    (prospect.proof.starCount < 1 || prospect.proof.starCount > 5)
+  ) {
+    errors.push(`${prospect.slug}: proof.starCount precisa estar entre 1 e 5`);
+  }
 
   return errors;
 }

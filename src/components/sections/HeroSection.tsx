@@ -51,7 +51,13 @@ export function HeroSection({ prospect }: HeroSectionProps) {
           <p className="hero__subtitle">{prospect.copy.heroSubtitle}</p>
           <div className="hero__chips">
             {prospect.copy.heroProofs.map((chip) => (
-              <Chip key={chip.label} icon={chip.icon} label={chip.label} />
+              <Chip
+                key={chip.label}
+                icon={chip.icon}
+                image={chip.image}
+                label={chip.label}
+                stars={chip.stars}
+              />
             ))}
           </div>
           <div className="hero__actions">

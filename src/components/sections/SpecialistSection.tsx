@@ -81,7 +81,9 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
                 <StatCard
                   decimals={1}
                   icon="star"
+                  image={prospect.proof.sourceLogo}
                   label={prospect.proof.sourceLabel ?? "avaliação"}
+                  stars={prospect.proof.starCount}
                   value={prospect.proof.rating}
                 />
               ) : null}
@@ -111,8 +113,13 @@ export function SpecialistSection({ prospect }: SpecialistSectionProps) {
               Falar com {specialistFirstName}
             </Button>
             {prospect.contact.instagramUrl ? (
-              <Button href={prospect.contact.instagramUrl} icon="instagram" variant="secondary">
-                Instagram
+              <Button
+                ariaLabel="Ver o Instagram da Kacia"
+                href={prospect.contact.instagramUrl}
+                icon="instagram"
+                variant="secondary"
+              >
+                Ver Instagram
               </Button>
             ) : (
               <Button href="#inicio" icon="calendar" variant="secondary">
