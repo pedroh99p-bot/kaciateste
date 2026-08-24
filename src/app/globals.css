@@ -3670,7 +3670,6 @@ img {
   animation: curtainExit var(--preloader-duration, 1050ms) cubic-bezier(0.76, 0, 0.18, 1) forwards;
 }
 
-.loading-page,
 .not-found {
   display: grid;
   min-height: 100dvh;
@@ -3679,15 +3678,6 @@ img {
   background: var(--color-page-background, #080808);
   color: #fff;
   text-align: center;
-}
-
-.loading-page div {
-  width: 3rem;
-  height: 3rem;
-  border: 3px solid rgba(255, 255, 255, 0.2);
-  border-top-color: #fff;
-  border-radius: 999px;
-  animation: spin 800ms linear infinite;
 }
 
 .not-found a {
@@ -3971,12 +3961,6 @@ body.menu-is-open .floating-actions {
 @keyframes curtainExit {
   to {
     transform: translate3d(0, -102%, 0);
-  }
-}
-
-@keyframes spin {
-  to {
-    transform: rotate(360deg);
   }
 }
 
