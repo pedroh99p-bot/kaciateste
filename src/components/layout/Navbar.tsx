@@ -7,6 +7,9 @@ type NavbarProps = {
 };
 
 export function Navbar({ prospect }: NavbarProps) {
+  const homeHref = prospect.seo.canonical
+    ? new URL(prospect.seo.canonical).pathname
+    : `/${prospect.slug}`;
   const navLinks: Array<{ href: string; label: string; icon: IconName }> = [
     { href: "#consulta", label: "Consulta rápida", icon: "message" },
     { href: "#especialista", label: prospect.copy.specialistNavLabel, icon: "user" },
@@ -18,7 +21,7 @@ export function Navbar({ prospect }: NavbarProps) {
 
   return (
     <header className="navbar navbar--menu-only">
-      <a className="navbar__brand" href={`/${prospect.slug}`} aria-label={`Início - ${prospect.business.name}`}>
+      <a className="navbar__brand" href={homeHref} aria-label={`Início - ${prospect.business.name}`}>
         <ImageWithFallback
           className="navbar__logo"
           fallback={prospect.assets.logo}

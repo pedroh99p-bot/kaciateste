@@ -1,6 +1,13 @@
-import { redirect } from "next/navigation";
-import { getDefaultProspectSlug } from "@/prospects/registry";
+import { notFound } from "next/navigation";
+import { ProspectLandingPage } from "@/components/pages/ProspectLandingPage";
+import { getDefaultProspectSlug, getProspectBySlug } from "@/prospects/registry";
 
 export default function HomePage() {
-  redirect(`/${getDefaultProspectSlug()}`);
+  const prospect = getProspectBySlug(getDefaultProspectSlug());
+
+  if (!prospect) {
+    notFound();
+  }
+
+  return <ProspectLandingPage prospect={prospect} />;
 }

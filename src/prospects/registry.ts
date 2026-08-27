@@ -18,3 +18,7 @@ export function getAllProspectSlugs() {
 export function getDefaultProspectSlug() {
   return defaultProspectSlug;
 }
+
+export function getIndexableProspects() {
+  return prospectRegistry.filter((prospect) => prospect.canIndex && prospect.seo.canonical);
+}

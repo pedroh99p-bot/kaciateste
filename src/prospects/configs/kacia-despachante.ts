@@ -49,7 +49,7 @@ const manualCacCoverAsset = {
 
 export const kaciaDespachanteProspect = {
   slug: "kacia-despachante",
-  status: "active",
+  status: "client",
   business: {
     name: "Kacia Despachante de Armas",
     category: "Despachante de armas",
@@ -977,8 +977,8 @@ export const kaciaDespachanteProspect = {
     title: "Kacia Despachante de Armas | CR, CAC, CRAF e Renovação",
     description:
       "Assessoria documental para CR, CAC, CRAF, Guia de Tráfego, renovação, posse e processos na Polícia Federal, com atendimento nacional.",
-    canonical: "https://kaciateste.vercel.app/kacia-despachante",
-    allowIndexing: false
+    canonical: "https://www.kaciadespachante.com.br/",
+    allowIndexing: true
   },
   tracking: {
     googleAnalyticsId: null,

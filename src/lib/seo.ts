@@ -11,7 +11,14 @@ export function createProspectMetadata(prospect: ResolvedProspect): Metadata {
   const robots = prospect.canIndex
     ? {
         index: true,
-        follow: true
+        follow: true,
+        googleBot: {
+          index: true,
+          follow: true,
+          "max-image-preview": "large" as const,
+          "max-snippet": -1,
+          "max-video-preview": -1
+        }
       }
     : {
         index: false,
@@ -35,12 +42,15 @@ export function createProspectMetadata(prospect: ResolvedProspect): Metadata {
       title: prospect.seo.title,
       description: prospect.seo.description,
       type: "website",
+      locale: "pt_BR",
+      siteName: prospect.business.name,
       url: prospect.seo.canonical ?? `/${prospect.slug}`,
       images: [
         {
           url: prospect.assets.socialPreview,
           width: 1200,
           height: 630,
+          type: "image/webp",
           alt: `${prospect.business.name} — prévia social`
         }
       ]
@@ -55,15 +65,30 @@ export function createProspectMetadata(prospect: ResolvedProspect): Metadata {
 }
 
 export function createLocalBusinessJsonLd(prospect: ResolvedProspect) {
+  const canonical = prospect.seo.canonical ?? undefined;
+  const origin = canonical ? new URL(canonical).origin : undefined;
+
   return {
     "@context": "https://schema.org",
     "@type": "ProfessionalService",
+    "@id": canonical ? `${canonical}#business` : undefined,
     name: prospect.business.name,
     description: prospect.business.description,
     areaServed: prospect.location.region,
-    address: prospect.location.address,
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: prospect.location.address,
+      addressLocality: prospect.location.city,
+      addressRegion: prospect.location.state,
+      addressCountry: "BR"
+    },
     telephone: prospect.contact.phoneLabel ?? prospect.contact.whatsappLabel,
-    url: prospect.seo.canonical ?? undefined,
+    url: canonical,
+    image: origin ? new URL(prospect.assets.socialPreview, origin).toString() : undefined,
+    logo:
+      origin && prospect.assets.logo.src
+        ? new URL(prospect.assets.logo.src, origin).toString()
+        : undefined,
     sameAs: [prospect.contact.instagramUrl].filter(Boolean)
   };
 }

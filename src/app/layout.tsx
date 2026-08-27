@@ -6,6 +6,8 @@ import {
   League_Spartan,
   Montserrat
 } from "next/font/google";
+import { createProspectMetadata } from "@/lib/seo";
+import { getDefaultProspectSlug, getProspectBySlug } from "@/prospects/registry";
 import "./globals.css";
 
 const inter = Inter({
@@ -42,9 +44,18 @@ const montserrat = Montserrat({
   weight: ["600", "700"]
 });
 
+const defaultProspect = getProspectBySlug(getDefaultProspectSlug());
+const prospectMetadata = defaultProspect
+  ? createProspectMetadata(defaultProspect)
+  : {
+      title: "Serviços profissionais",
+      description: "Atendimento profissional especializado."
+    };
+
 export const metadata: Metadata = {
-  title: "Fábrica de Landing Pages para Despachantes",
-  description: "Base configurável para demonstrações de despachantes."
+  ...prospectMetadata,
+  applicationName: defaultProspect?.business.name,
+  manifest: "/manifest.webmanifest"
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
